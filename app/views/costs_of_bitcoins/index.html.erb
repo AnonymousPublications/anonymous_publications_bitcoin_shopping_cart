@@ -1,0 +1,25 @@
+<h1>Listing costs_of_bitcoins</h1>
+
+<table>
+  <tr>
+    <th>Qty of satoshi</th>
+    <th>Cost in usd</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @costs_of_bitcoins.each do |costs_of_bitcoin| %>
+  <tr>
+    <td><%= costs_of_bitcoin.qty_of_satoshi %></td>
+    <td><%= costs_of_bitcoin.cost_in_usd %></td>
+    <td><%= link_to 'Show', costs_of_bitcoin %></td>
+    <td><%= link_to 'Edit', edit_costs_of_bitcoin_path(costs_of_bitcoin) %></td>
+    <td><%= link_to 'Destroy', costs_of_bitcoin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Costs of bitcoin', new_costs_of_bitcoin_path %>

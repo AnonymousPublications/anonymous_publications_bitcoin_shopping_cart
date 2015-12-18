@@ -1,0 +1,18 @@
+<%= simple_form_for(@bitcoin_payment) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :value %>
+    <%= f.input :input_address %>
+    <%= f.input :confirmations %>
+    <%= f.input :transaction_hash %>
+    <%= f.input :input_transaction_hash %>
+    <%= f.input :destination_address %>
+    <%= f.input :sale_id %>
+    <%= f.input :raw_callback %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

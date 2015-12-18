@@ -1,0 +1,43 @@
+-if @address.erroneous
+  %p
+    The address you specified appeared to be unshippable by our shipping team.  
+    We're very sorry that this inconvenience has occured.  
+    It is recommended that you click the edit button on this page and update you address.
+    Due to the way we've encrypted your address, you'll be unable to review the address you submitted to us unless you printed it out on paper or to a file.
+    
+    
+-elsif @sale.receipt_confirmed || @sale.technically_paid?
+  %p We've received your payment and your book will ship out to you at a wonderful pace!  
+  
+-else # !@sale.receipt_confirmed
+  %section{:class => "order-completion-paragraph"}
+    %p
+      To complete your order, please send 
+      %span{:class => "money"}=@remainder_to_pay
+      %span=@sale.currency_used
+      to the below shopping cart bitcoin address:
+    %section{ :class => "sale-bitcoin-address well" }
+      %div
+        - if @is_partially_paid
+          %span{:class => "money"}=@remainder_to_pay
+          %span=@sale.currency_used
+          = "still left to pay..."
+        - else
+          = "Pay:  "
+          %span{:class => "money"}=@remainder_to_pay
+          %span=@sale.currency_used
+
+      %div{:class => "z"}
+        To: 
+      %div{:class=>"bitcoin-address"}
+        =@sale.checkout_wallet.input_address
+    %p
+      When the above address has been sent #{@sale.display_total_amount}
+      BTC, it will be indicated on your user page and we will begin shipping the book to you at a remarkable haste.  
+
+%p{ :class=>"recommend-printing" }
+  It's important for you to print this page for your records because your address information will be encrypted in such a way 
+  that it won't be accessable over the web again (in fact it never was exposed to the web, even over SSL without first 
+  being wrapped in an additional layer of encryption).  The establishment could easily nuke this web app 
+  (nj to all souless hampsters at End Game Systems) 
+  so having a print out of this could really come in handy for you.  

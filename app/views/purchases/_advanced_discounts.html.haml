@@ -1,0 +1,26 @@
+%tr{ :align => "top", :valign => "left" }
+  %td{ :class => "well", :valign => "top" }
+    %div
+      %a{ :id => "toggle-discounts-btn", :style => "cursor: pointer;text-decoration:underline"}
+        Apply Advanced Discounts
+  %td
+    %div{:class => 'discount-checkboxes', :style => "display:none;"}
+      %ul
+        %li{ :class => "pointer"}
+          %input{:type => 'checkbox', :name => 'line_item_has_teacher_discount', :id => 'line_item[has_teacher_discount]', :class => "teacher-discount-checkbox"} 
+          %span{ :onClick => "toggle_discount_checkbox(event)" }
+            Teacher Discount
+        %li{ :class => "pointer"}
+          %input{:type => 'checkbox', :name => 'line_item_has_library_discount', :id => 'line_item[has_library_discount]', :class => "library-discount-checkbox"} 
+          %span{ :onClick => "toggle_discount_checkbox(event)" }
+            Library Discount
+        
+        %div{:class => "indent well discount-instructions"}
+          %p 
+            We love giving discounts, but it can be kind of tricky over the web.  
+            We'll grant teacher discounts if your shipping address is to your school where you work.  
+            Please send a link to your school so we can easily lookup your bio on the staff page of your .edu's website.  
+          %p
+            Btw, shipping information is encrypted using public/private cryptography standards before it even leaves your 
+            browser and the information can only be decrypted by our offline labol printing linux system.  
+        = text_area :line_item, :discount_verification_instructions, :wrap => "soft", :rows => 4

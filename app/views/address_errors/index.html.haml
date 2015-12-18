@@ -1,0 +1,23 @@
+%link{:type => "text/css", :rel => "stylesheet", :href => "/stylesheets/address.css"}
+=render "/admin_pages/control_pane"
+
+%h1 Address Label Errors
+
+%p
+  If there are labels that aren't printing correctly, please mark them as errornious here... 
+  
+%div
+  -# TODu:  Insert: 
+  -# A search bar
+  -# A list view of existing labels marked as erroneous
+
+-# %form{ :id => "mah-form", :action => "address_errors/update_them", :method => 'post' }
+=simple_form_for(@address_error, :action => "butkiss") do |f|
+  %div{:class => "form-actions"}
+    =# f.button :submit, "Save Changes"
+    %input{ :id => "address_error-submit", :type => "submit", :class => "input-state", :name => "submit", :value => "Save Changes" }
+
+  %div{:class => "addresses"}
+    %div{:class => "address"}
+      -@addresses.each do |address|
+        =render :partial => "/admin_pages/address_label", :locals => { :address => address, :f => f }

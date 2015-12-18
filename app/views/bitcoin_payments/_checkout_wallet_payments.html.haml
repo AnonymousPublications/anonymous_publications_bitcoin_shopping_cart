@@ -1,0 +1,21 @@
+- unless @sale.bitcoin_payments.empty? || @sale.technically_paid?
+  %div{ :class => "order-form well" }
+    %h4{ :class => "sale-creation-date" }
+      Bitcoin Payments Received Thus Far
+    %table{ :class => "line-items" }
+      %thead
+        %tr
+          %th Amount
+          %th Date
+  
+      %tbody{ :class => "line-items-body" }
+        - @sale.bitcoin_payments.each do |bitcoin_payment|
+          %tr{ :class => "line-item"}
+            %td{}
+              = WorkHard.display_satoshi_as_btc(bitcoin_payment.value)
+            %td
+              = bitcoin_payment.created_at
+    %h4{ :class => "sale-creation-date" }
+      Payment Still Needed
+    %h4{ :class => "sale-creation-date money" }
+      =@remainder_to_pay

@@ -1,0 +1,44 @@
+%h1 System Administration
+
+%ul{:class => "subtle-list"}
+  - if can? :admin, :pages
+    %li
+      %h4 Business Management
+    %li
+      %ul{:class => "subtle-list"}
+        %li= link_to "Product Management", "#" if can? :admin, :pages
+        %li= link_to "Discounts and Coupons", "/admin_pages/discounts" if can? :admin, :pages
+        %li= link_to "Financial Auditing", "/admin_pages/finance" if can? :download, :finances
+        
+
+  - if can? :admin, :pages
+    %li
+      %h4 Customer Management
+    %li
+      %ul{:class => "subtle-list"}
+        %li= link_to "List Help Requests", "#" if can? :admin, :pages
+  
+  - if can? :download, :purchase_data
+    %li
+      %h4 Downloader Functions
+    %li
+      %ul{:class => "subtle-list"}
+        %li= link_to "View Downloader Controls", "/admin_pages/downloader_controls" if can? :download, :purchase_data
+        %li= link_to "Download DB Backup", "/admin_pages/download_database" if can? :download, :purchase_data
+  
+  - if can? :perform, :shipping
+    %li
+      %h4 Shipping Functions
+    %li
+      %ul{:class => "subtle-list"}
+        %li= link_to "View Shipping Controls", "/admin_pages/shipping_control" if can? :perform, :shipping
+
+  - if can? :admin, :pages
+    %li
+      %h4 System Debugging/ Setup
+    %li
+      %ul{:class => "subtle-list"}
+        %li= link_to "Generate application.yml file", "/admin_pages/application_dot_yml.txt" if can? :admin, :pages
+        %li= link_to "System Messages", "/messages" if can? :admin, :pages
+        %li= link_to "Configuration Tests", "/admin_pages/configuration_tests" if can? :admin, :pages
+        

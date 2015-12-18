@@ -1,0 +1,6 @@
+%h1 Upload Shippable POs for Label Printing
+
+=form_for :file_upload, :html => {:multipart => true} do |f|
+  =f.file_field :my_file
+  =f.submit "Upload"
+

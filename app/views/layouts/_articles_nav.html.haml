@@ -1,0 +1,14 @@
+- class_activeness = params[:controller] == 'articles' ? "active" : ""
+
+%li{:class => class_activeness}
+  %a{:href => "/articles"} 
+    %span.glyphicon.glyphicon-flash{"aria-hidden" => "true"}
+    Articles
+
+- if params[:controller] == 'articles' and params[:action] != 'index'
+  %li{:class => ""}
+    %ul.navbar-child-list.nav-list
+      %li
+        %span.glyphicon.glyphicon-chevron-right{"aria-hidden" => "true"}
+        =@article_name
+

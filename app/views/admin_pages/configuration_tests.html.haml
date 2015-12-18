@@ -1,0 +1,24 @@
+%h1 Configurations Tests
+%p
+  To make sure the app is configured properly (and all the 3rd party APIs the app uses are still in working condition) 
+  you can use this page to test that everything still works.  
+  
+
+%h3 BTC APIs
+
+
+%div
+  %div
+    Results of CostsOfBitcoin.collect_data_needed_for_exchange_rate_calculation
+    %div
+      - @exchange_rate_collection = CostsOfBitcoin.collect_data_needed_for_exchange_rate_calculation
+      = @exchange_rate_collection
+    %br
+  %div
+    Average cost of bitcoin
+    %div
+      - @calculated_exchange_rate = CostsOfBitcoin.calculate_exchange_rate(@exchange_rate_collection)
+      = @calculated_exchange_rate.to_s
+      
+
+

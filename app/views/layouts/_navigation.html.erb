@@ -1,0 +1,39 @@
+<% can = $StoreClosed ? "could" : "can"%>
+<div class="well navigation"> 
+	<ul class="nav nav-list navbar-custom">
+		<% if show_shopping_clutter? %>
+			<li class="<%= 'active' if params[:action] == 'home'and params[:controller] == "pages"%>"> <a href="/">Home</a></li>
+			<li class="<%= 'active' if params[:action] == 'titles'%>"> <a href="/titles">Titles You <%= can %> Buy!</a></li>
+			<li class="nav-divider"></li>
+			<li class="<%= 'active' if params[:action] == 'about'%>"> <a href="/about">About Us</a></li>
+			<li class="<%= 'active' if params[:action] == 'careers'%>"> <a href="/careers">Careers and Activities</a></li>
+			<li class="nav-divider"></li>
+			<%= render "/layouts/articles_nav"%>
+			<%= render "/layouts/latest_nav"%>
+			
+			<li class="<%= 'active' if params[:action] == 'donate'%>">
+				<a href="/donate">
+					<span class="glyphicon glyphicon-tower" "aria-hidden"="true"></span>
+					Donation Opportunity!
+				</a>
+			</li>
+			
+			<!-- <li class="<%= 'active' if params[:action] == 'most_lovely'%>"> <a href="/most_lovely">Most Lovely Documents</a></li> -->
+			<!-- <li class="<%= 'active' if params[:action] == 'pricing'%>"> <a href="/pricing">Pricing</a></li> -->
+			<!-- <li class="<%= 'active' if params[:action] == 'purchasing'%>"> <a href="/purchasing">Discounting</a></li> -->
+			<!-- <li class="<%= 'active' if params[:action] == 'retailers'%>"> <a href="/1337bookstores">Retailers</a></li> -->
+			<!-- <li class="<%= 'active' if params[:action] == 'faq'%>"> <a href="/faq">FAQ</a></li>  -->
+			
+		<% end %>
+		
+		<% if !current_user.nil? and show_shopping_clutter? %>
+			<li class="nav-divider"></li>
+			<li class="<%= 'active' if params[:action] == 'show' and params[:controller] == "users"%>"> <a href="/users/<%= current_user.id %>">ACCOUNT INFO</a></li>
+		<% end %>
+		
+		<% if team_member? %>
+		<li class="<%= 'active' if params[:action] == 'home' and params[:controller] == "admin_pages"%>"> <a href="/admin_pages/home">ADMINISTRATE</a></li>
+		<% end %>
+		<!-- <li class="<%= 'active' if params[:action] == 'core_members'%>"> <a href="/core_members">Core Members</a></li> -->
+	</ul>
+</div>

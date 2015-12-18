@@ -1,0 +1,14 @@
+.dropdown.pull-right
+  %button#dropdownMenu1.btn.btn-default.dropdown-toggle.glyphicon.glyphicon-cog{"aria-expanded" => "true", "data-toggle" => "dropdown", :type => "button"}
+    %span.caret
+  %ul.dropdown-menu{"aria-labelledby" => "dropdownMenu1", :role => "menu"}
+    %li{:role => "presentation"}
+      %a{:href => "https://cards-dev.twitter.com/validator", :role => "menuitem", :tabindex => "-1"} Share on Twitter
+    %li{:role => "presentation"}
+      %a{:href => "#", :role => "menuitem", :tabindex => "-1"} Share on FaceBook
+    %li{:role => "presentation"}
+      = link_to 'Show', @story
+    %li{:role => "presentation"}
+      = link_to 'Edit', edit_story_path(@story)
+    %li{:role => "presentation"}
+      = link_to 'Destroy', @story, method: :delete, data: { confirm: 'Are you sure?' }

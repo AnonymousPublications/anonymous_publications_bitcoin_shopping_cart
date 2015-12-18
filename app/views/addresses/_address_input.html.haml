@@ -1,0 +1,78 @@
+<script src="/javascripts/openpgpjs/openpgp.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="/javascripts/encryption.js" type="text/javascript" charset="utf-8"></script>
+
+=render "/addresses/address_js"
+
+-if current_user.nil?
+  %script
+    var userCodeNames = [];
+-else
+  %script
+    var userCodeNames = #{current_user.code_names.to_s.html_safe};
+
+%tr
+%tr{ :align => "top", :valign => "left", :class => "address_create_field" }
+  %td{:rowspan => "2"}
+    =label :address, :code_name, 'Code Name:'
+    %p
+      (eg "My House")
+  %td{:rowspan => "2", :valign => "top", :style => "padding-bottom:10px;"}
+    =text_field :address, :code_name, :class => "validate[required,funcCall[checkCodeName]]"
+%tr{:class => "spaceUnder", :class => "address_create_field"}
+  %td
+%tr{:class => "smallSpaceUnder", :class => "address_create_field"}
+  %td
+    
+%tr{ :align => "top", :valign => "left", :class => "address_create_field" }
+  %td
+    =label :address, :first_name, "First Name:"
+  %td
+    =text_field :address, :first_name, :class => "validate[required]"
+%tr{ :align => "top", :valign => "left", :class => "address_create_field" }
+  %td
+    =label :address, :last_name, "Last Name:"
+  %td
+    =text_field :address, :last_name, :class => "validate[required]"
+
+%tr{ :align => "top", :valign => "left", :class => "address_create_field" }
+  %td
+    =label :address, :country, "Country:"
+  %td
+    = select_tag "address[country]", options_for_select(WorkHard.places_we_ship_to), :class => "validate[required]"
+    =# country_select("address", "country", [ "United States", "Great Britain", "Australia" ], {}, :class => "validate[required]")
+
+%tr{ :align => "top", :valign => "left", :class => "address_create_field" }
+  %td
+    =label :address, :address1, "Address:"
+  %td
+    =text_area :address, :address1, :wrap => "soft", :rows => 2, :class => "validate[required]"
+%tr{ :align => "top", :valign => "left", :class => "address_create_field" }
+  %td
+    =label :address, :address2, "Address (line 2):"
+  %td
+    =text_area :address, :address2, :wrap => "soft", :rows => 2
+%tr{ :align => "top", :valign => "left", :class => "spaceUnder address_create_field" }
+  %td
+    =label :address, :apt, "Apt:"
+  %td
+    =text_field :address, :apt, :class => "input-tiny"
+   
+  
+%tr{ :align => "top", :valign => "left", :class => "address_create_field" }
+  %td
+    =label :address, :city, "City:"
+  %td
+    =text_field :address, :city, :class => "validate[required]"
+
+%tr{ :align => "top", :valign => "left", :class => "spaceUnder address_create_field" }
+  %td
+    =label :address, :state, "State:"
+  %td
+    =select_tag "address[state]", options_for_select(us_states), :class => "validate[required]"
+
+%tr{ :align => "top", :valign => "left", :class => "spaceUnder address_create_field" }
+  %td
+    =label :address, :zip, "Zip:"
+  %td
+    =text_field :address, :zip, :class => "input-small validate[required]"
+

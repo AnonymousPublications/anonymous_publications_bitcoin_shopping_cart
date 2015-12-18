@@ -1,0 +1,24 @@
+<script>
+
+var encryption_key = <%= $EncryptionKey.to_json.html_safe %>;
+//encrypt('hello', getkey(encryption_key))
+
+jQuery(document).ready(function(){
+	
+	// jQuery("form").validationEngine('attach')
+	
+	$("form").validationEngine('attach', {
+			onValidationComplete: function(form, status){
+				if (status){
+					$("form").validationEngine('detach');
+					replaceSelectDropdownsWithHiddens();
+					encryptAddressValues();
+					return true;
+				}
+			}
+		});
+	
+	});
+
+
+</script>

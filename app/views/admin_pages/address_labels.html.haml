@@ -1,0 +1,63 @@
+!!! 5
+%link{:type => "text/css", :rel => "stylesheet", :href => "/stylesheets/address.css"}
+%link{:type => "text/css", :rel => "stylesheet", :media => "print", :href => "/print.css"}
+=render "control_pane"
+
+-print_phony_labels = false
+
+%div{:class => "labels"}
+  =render "hidden_label"
+  
+  -if !print_phony_labels
+    -@number_of_pages_to_show.times do |big_hand|
+      %div{:class => "sheet-header"} QTY #{@qty}
+      
+      %div{:class => "sheet"}
+        -@number_of_labels_per_page.times do  |little_hand|
+          - i = big_hand*30 + little_hand
+          - break if i == @addresses.count
+          - address = @addresses[i]
+          = render :partial => "address_label", :locals => {:address => address }
+
+      %div{:class => "page-break"}
+  
+  
+  -# DUMMY ADDRESS PRINTER
+  -if print_phony_labels
+    -first_name = 'John'
+    -last_name = 'Doe'
+    -address1 = '4001 Prime Drive'
+    -address2 = 'Garden'
+    -apt = "1"
+    -city = "New York"
+    -state = "NY"
+    -zip = "11109"
+  
+    -1.times do |big_hand|
+      %div{:class => "sheet-header"}
+      
+      %div{:class => "sheet"}
+        -30.times do  |little_hand|
+          -# i = big_hand*30 + little_hand
+          -# break if i == @addresses.count
+          -# address = @addresses[i]
+          %div{:class => "label"}
+            %div{:class => "text"}
+              %div{:class => 'name'}
+                #{first_name} #{last_name}
+              %div{:class => 'address'}
+                #{address1}
+              -unless address2.empty?
+                %div{:class => 'address2'}
+                  #{address2}
+              -unless apt.empty?
+                %div{:class => "apt"}
+                  \# #{little_hand}
+              %div{:class => 'city-state-zip'}
+                #{city}, #{state}, #{zip}
+        
+      %div{:class => "page-break"}
+
+
+
+

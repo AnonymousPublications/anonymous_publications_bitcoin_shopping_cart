@@ -1,0 +1,37 @@
+%h1 1337 Bookstores
+
+%p 
+  Anonymous Publications is sending out agents of peace into the US in search of the nation's most elite bookstores.  
+  We're finding them, and putting our books in them.  If you think you know of a 1337 bookstore that no one has gotten to yet,
+  and are able to navigate the powerful currents of the bitcoin network aqcuire some books from us and put things in motion 
+  yourself.  For every book you put in a bookstore, we will slay seven really mean dragons, but only if you act IMMEDIATELY!  
+  - if false 
+    (Garison Kielers book store rejected the book, but on second look, his shop isn't really as leet as we thought it would be).  
+%p
+  Below is a listing of elite bookstores where you can acquire our premire title in the most paranoid way possible, cash ;)  
+
+%div{:class => "bookstores"}
+  - @bookstores.each do |bookstore|
+    %div{:class => "bookstore well"}
+      %div{:class => "name"}=bookstore.name
+      %div{:class => "address"}
+        %span{:class => "label"} Address
+        %p{:class => "bookstore-field"}
+          =bookstore.address1
+        %p{:class => "bookstore-field"}
+          #{bookstore.city}, #{bookstore.state} #{bookstore.zip}
+      - if false
+        %div{:class => "phone"} disabled
+      %div{:class => "map-link"}
+        %span{:class => "label"} Map Link
+        %p{:class => "bookstore-field"}
+          = link_to "Link", bookstore.map_link
+          
+      %div{:class => "map-frame"}
+        %span{:class => "label"} Map Frame
+        TODO:  Put a plus symbol here that loads the google maps link when pushed
+      %div{:class => "notes"}
+        %span{:class => "label"} notes
+        %p{:class => "bookstore-field"}
+          =bookstore.notes
+

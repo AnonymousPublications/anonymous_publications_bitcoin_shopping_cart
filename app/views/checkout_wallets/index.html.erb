@@ -1,0 +1,29 @@
+<h1>Listing checkout_wallets</h1>
+
+<table>
+  <tr>
+    <th>Value needed</th>
+    <th>Input address</th>
+    <th>Transaction hash</th>
+    <th>Input transaction hash</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @checkout_wallets.each do |checkout_wallet| %>
+  <tr>
+    <td><%= checkout_wallet.value_needed %></td>
+    <td><%= checkout_wallet.input_address %></td>
+    <td><%= checkout_wallet.transaction_hash %></td>
+    <td><%= checkout_wallet.input_transaction_hash %></td>
+    <td><%= link_to 'Show', checkout_wallet %></td>
+    <td><%= link_to 'Edit', edit_checkout_wallet_path(checkout_wallet) %></td>
+    <td><%= link_to 'Destroy', checkout_wallet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Checkout wallet', new_checkout_wallet_path %>

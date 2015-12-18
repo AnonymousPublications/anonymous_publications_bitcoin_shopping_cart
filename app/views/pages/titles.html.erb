@@ -1,0 +1,45 @@
+<h1>Current Titles</h1>
+
+<div class="titles">
+	<div class="well title-capsul">
+	
+		<div class="title-thumbnail"><img src="/images/titles/pwtd.jpg" width="120px" height="140px"></div>
+		
+		<div class="title">The Parade with the Drums</div>
+		<div class="cost"><strong>Price:</strong>  $18.00</div>
+		
+		<div class="demo"><strong>Demo/ readthrough material:</strong>  
+			<a href="https://vimeo.com/111941026">Vimeo</a>
+		</div>
+		
+		<div class="digital-copy">
+			<strong>Digital Copy:</strong>
+				<a href="/pwtd-online-friendly" target="_blank">Imgur</a>
+		</div>
+		
+		<div class="clear"></div>
+		<div class="summary indent">Follow Sam as he treks from his home through a big city amassed with protesters marching for love and peace.</div>
+		
+		<% if $StoreClosed %>
+		<center>
+			<div>Payment Options:</div>
+			Sorry, the store is currently closed.  Check back soon.  
+		</center>
+		
+		
+		<% else %>
+		<center>
+			<button class="btn btn-primary btn-obtain" onclick="window.location = '/purchases/new'">
+				Buy Now <br> With Bitcoin!
+			</button>
+			
+			<button class="btn btn-obtain" style="background-color: #666;" 
+			  onclick='alert("We are presently boycotting paypal as that we do not believe they are a legitimate authority.  \nPlz contact us to learn more about crypto-currency if you need help.");'>
+				Pay with Paypal
+			</button>
+		</center>
+		
+		<% end %>
+		
+	</div>
+</div>

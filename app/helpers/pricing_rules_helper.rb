@@ -1,0 +1,2 @@
+module PricingRulesHelper
+end

@@ -1,0 +1,21 @@
+%link{ :type=>"text/css", :rel=>"stylesheet", :media=>"print", :href => "/print.css" }
+
+=render 'debugging_shit'
+
+-unless @pass.nil?
+  =render 'account_created'
+
+=render 'header'
+=render 'instructions'
+
+=render '/bitcoin_payments/checkout_wallet_payments'
+=render '/addresses/address_display'
+=render 'sale_display'
+
+%script{:type => "text/javascript", :src => "/javascripts/bitcoin_payments.js"}
+
+%script{:type => "text/javascript"}
+  checkIfNewPmtsFoundAndReload();
+  $(document).ready(function() {  onShowPageLoad(valuesToSaveGlobal);  });
+  var lastManualLookup = "#{@sale.checkout_wallet.last_manual_lookup.to_s}";
+  var sale_id = #{@sale.id}

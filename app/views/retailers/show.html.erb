@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @retailer.name %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @retailer.address %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%= @retailer.phone %>
+</p>
+
+<p>
+  <b>Maps link:</b>
+  <%= @retailer.maps_link %>
+</p>
+
+<p>
+  <b>Notes:</b>
+  <%= @retailer.notes %>
+</p>
+
+
+<%= link_to 'Edit', edit_retailer_path(@retailer) %> |
+<%= link_to 'Back', retailers_path %>

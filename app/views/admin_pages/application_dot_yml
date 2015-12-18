@@ -1,0 +1,130 @@
+##################
+# DEBUG SETTINGS #
+##################
+#
+# HINT: On the production server, these should all be set to false
+
+# When true, will use debugging encryption keys which completely undermines privacy
+IS_DEBUGGING_ENCRYPTION:        <%= @settings[:IS_DEBUGGING_ENCRYPTION] %>
+
+# Allows you to operate the app, even in an offline environment
+IS_DEBUGGING_RESPONSES:         <%= @settings[:IS_DEBUGGING_RESPONSES] %>
+
+# Set this and IS_DEBUGGING_RESPONSES to false if you actually want your tests to query the internet (Might not work for all tests...)
+IS_MOCKING_RESPONSES_IN_TESTS:  <%= @settings[:IS_MOCKING_RESPONSES_IN_TESTS] %>
+
+# Allows you to use the debug buttons I put on the html forms... linked with IS_DEBUGGING_UI...
+IS_DEBUG_API_ON:                <%= @settings[:IS_DEBUG_API_ON] %>    
+
+# Adds buttons to UI that make debugging easier
+IS_DEBUGGING_UI:                <%= @settings[:IS_DEBUGGING_UI] %>
+
+# Hides the anonymous logo if you're feeling casual about developing in public
+# Or asking colleagues for advice
+HIDE_BRAND:                     <%= @settings[:HIDE_BRAND] %>
+
+# this disables things like 'buy now' buttons and bitcoin donation widgets
+# basically anything that will be researchable...
+DISABLE_EXTERNAL_WIDGETS:       <%= @settings[:DISABLE_EXTERNAL_WIDGETS] %>
+
+
+################
+# APP SETTINGS #
+################
+
+BITCOIN_CALLBACK_DOMAIN: "<%= @settings[:BITCOIN_CALLBACK_DOMAIN] %>"
+
+MAIL_USERNAME:         "<%= @settings[:MAIL_USERNAME] %>"
+MAIL_PASSWORD:         "<%= @settings[:MAIL_PASSWORD] %>"
+MAIL_DOMAIN:           "<%= @settings[:MAIL_DOMAIN] %>"
+MAIL_SERVER_ADDRESS:   "<%= @settings[:MAIL_SERVER_ADDRESS] %>"
+MAIL_PORT:             <%= @settings[:MAIL_PORT] %>
+
+ROLES:          [user, admin, downloader, shipping]
+
+DEFAULT_USERS:  |
+  [
+    { name: "admin",      email: "test@gmail.com",       password: "password",              roles: ["admin"] },
+    { name: "downloader", email: "dl@anonlit.com",       password: "changemedownloader775", roles: ["downloader"] },
+    { name: "shipping",   email: "shipping@anonlit.com", password: "changemedownloader775", roles: ["shipping"] }
+  ]
+
+
+######################
+# FINANCIAL SETTINGS #
+######################
+
+SHOPPING_CART_WALLET:  "<%= @settings[:SHOPPING_CART_WALLET] %>"
+DONATION_WALLET:       "<%= @settings[:DONATION_WALLET] %>"
+PAYPAL_ID:             "empty"
+
+
+##########################
+# EXCHANGE RATE SETTINGS #
+##########################
+
+EXCHANGE_RATE_RESOURCES:  | 
+          [ { :uri => "https://api.bitcoincharts.com/v1/weighted_prices.json",
+              :avg_30_days => "[\"USD\"][\"30d\"]",
+              :avg_7_days => "[\"USD\"][\"7d\"]",
+              :avg_24_hours => "[\"USD\"][\"24h\"]",
+              :usages => "all" }, 
+            { :uri => "https://api.bitcoinaverage.com/ticker/global/USD/",
+              :avg_30_days => "",
+              :avg_7_days => "",
+              :avg_24_hours => "[\"24h_avg\"]",
+              :usages => "avg_24_hours" } ]
+
+
+####################
+# ENCRYPTION CODES #
+####################
+
+# This is the encryption key, if you're debugging and want to use a test key
+# that can be uploaded to the net, just set IS_DEBUGGING_ENCRYPTION to true
+# and the keys in config/initializers/populate_globals.rb will be used
+# instead of any values here
+ENCRYPTION_KEY: |
+  -----BEGIN PGP PUBLIC KEY BLOCK-----
+  Version: GnuPG v1.4.12 (GNU/Linux)
+
+  mQENBFOrNskBCADXII4JlXQ99cpxqIWwNfMqKA+kg/nMNqHlZG2zCQLtAn3m7fQM
+  Se7FCcSqH9Fl4WlqnKFT1k3b6WQHk4ZSJCpUPZs6gDFr9rH4mnj81kgv9wMBfTSn
+  Xh15EOqzAIfwJI4fjjiTI6VTjT3/sn61rP/cWJIAo1G7OkJ3WvA7TZPWhqHS9exL
+  3TsHAnT+5AkfeQWWPvq5yDrMLPoKfnDixqvw4TVUCuJcPxMC0f4jBJwHcqNu1XFu
+  82fu+k40b0baHuXsEuF4+L2sNZEjYB4H1QqIzLxXS4AmAFWdHbjNIt7G0ayWPq4x
+  XhwQ96vmkI99fQaJpCWpI6Gymp4WYHjuPoWpABEBAAG0P0Fub255bW91cyAoRnVj
+  ayB0aGUgTmF6aXMgdjIpIDxBbm9ueW1vdXNQdWJsaWNhdGlvbnpAZ21haWwuY29t
+  PokBOAQTAQIAIgUCU6s2yQIbAwYLCQgHAwIGFQgCCQoLBBYCAwECHgECF4AACgkQ
+  kvQE8dyyGj+oaQgAzDgk9iHitvQbEJH1VgAfan6i8JK2Ny1jKuRBz5cijVN3afYR
+  h0hi6Bbc8CKoC0k/G0u0IAjmtWIlh4cy5/rqoUMONzLPt+pxHPJ8GnaGbxu8Q/5j
+  7NI8S3vJeoKFk+kzr0cNQX2EN8BsZqk07mqOs4Bg0AvXUUOM/OxSYBUgWsUFXoDq
+  qg2B29lPRMyNRz3PJ/223KcqtZa7/Pkr1KGgrGvlK6i50Al9M6bmAtkOK76h/U66
+  GXQazGX6LH8j87i3g9CYIrz+EkOhWA7xTXLjjYHbcjMYUzRXuJ69p8keylSYxRxU
+  mWkMFBdIqZsB+S5GGAUM1L+iZxUAvK+GcPrw/bkBDQRTqzbJAQgAuD+Kt5ExsDcE
+  OoULn1z3/iU32vKAlm5COhI7VAzgJMTxZ8BafMGoncVmL3TYv9fqhdSIhwm7bdTE
+  4yvUHFfq82UGws1MCjgc0A5tBtlDBj9G6Hg6Qpb7djaZPfjuFsF4NOSOrjq1OLkG
+  L63xP+9FRZFNogg9upT6cdmZcsEYtBze7qodzJKbu3OzAhiOCyxg7+0wjPADztIc
+  cKAparsnlzvFmBtLK64Uwb43qNxvx6kCCdii3ZglK6YYj2jaTrQZtH27vTPnHE8N
+  rLHng1v24wmakz8AwvFghrqnLKyeilwcH4S7U5LYLJNnPiahpmMmK4z+h8k1qVTx
+  +OfeERApXwARAQABiQEfBBgBAgAJBQJTqzbJAhsMAAoJEJL0BPHcsho/YUoH/jcc
+  /SmQPjZK77+d9VbmTVvK+utT9iY+lqtjG/UMo3ECP9PEaiON0WRowqhaO4aTlQP8
+  w5ZlhoGoTcT8H+1fSf52YhjA91QRecH30VeuMpZcvX1vi1DY/g5CpS39a4Uj6t6M
+  4TY8QflQ7HyxN4Kh157eOobDW8rw4HvKSPYPZDIp6jdD46jPOsmT8dNxceJQjNV2
+  /cZ1uLnoKSY15NCasUPIkttckTFUKM+FeQT1fFzJAQwNGeVgvmVVFdkfmnslp5D0
+  Hx3thf49oN17TriSp2dQSv1J+GD5d6UH6zCRA9FzjWZkadEpZjIBLnO0qZuu2gSP
+  mritgVojuD0dziZweP4=
+  =Cx29
+  -----END PGP PUBLIC KEY BLOCK-----
+
+
+########################
+# PRINTER MACHINE ONLY #
+########################
+
+DECRYPTION_KEY: | 
+  -----BEGIN PGP PRIVATE KEY BLOCK-----
+  Version: GnuPG v1.4.12 (GNU/Linux)
+
+  Real key goes here...
+  -----END PGP PRIVATE KEY BLOCK-----

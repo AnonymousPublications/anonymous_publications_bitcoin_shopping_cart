@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Public key:</b>
+  <%= @encryption_pair.public_key %>
+</p>
+
+<p>
+  <b>Private key:</b>
+  <%= @encryption_pair.private_key %>
+</p>
+
+<p>
+  <b>Test value:</b>
+  <%= @encryption_pair.test_value %>
+</p>
+
+<p>
+  <b>Tested:</b>
+  <%= @encryption_pair.tested %>
+</p>
+
+
+<%= link_to 'Edit', edit_encryption_pair_path(@encryption_pair) %> |
+<%= link_to 'Back', encryption_pairs_path %>

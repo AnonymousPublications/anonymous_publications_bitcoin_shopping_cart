@@ -1,0 +1,35 @@
+%script{:type => "text/javascript", :src => "/javascripts/bitcoin_payments.js"}
+%script{:type => "text/javascript", :src => "/javascripts/encryption.js"}
+%script{:type => "text/javascript", :src => "/javascripts/openpgp.min.js"}
+
+
+
+%script
+  var encryption_key = #{$EncryptionKeyEmail.to_json.html_safe};
+  
+  function encryptTextArea_onClick() {
+  var encrypted = encryptTextArea();
+  
+  document.getElementById('cleartext').value = encrypted;
+  
+  alert('message encrypted, paste into email');
+  }
+  
+  function encryptTextArea(){
+  var cleartext = document.getElementById('cleartext').value;
+  var encrypted = encryptSafe(cleartext, encryption_key);
+  
+  return encrypted;
+  }
+  
+%h1 Encrypt a Message
+
+%h4 How does this page work?
+%p
+  Paste text into the below entry that you would like to encrypt such that only we can decrypt it.  
+  After clicking Encrypt, your message will be encrypted, 
+  you can then copy and paste it into an email message and send to anonymousPublications@riseup.net
+
+  %textarea{ id:"cleartext", style: "width: 700px;height: 500px;"}
+    
+  %button{ onclick: "encryptTextArea_onClick()" } Encrypt

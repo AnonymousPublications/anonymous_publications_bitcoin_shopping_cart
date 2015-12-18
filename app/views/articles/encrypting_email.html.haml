@@ -1,0 +1,186 @@
+%script{:type => "text/javascript", :src => "/javascripts/articles.js"}
+
+%script
+  $( document ).ready(function() {
+  // Due to twitterbootstrap being horribly outdated... this!
+  $('.dropdown-toggle').dropdown();
+  
+  os = getOsType();
+  if (os == "unknown") os = "linux";
+  $('.os-label').html(os + " (detected)");
+  displayOnly(os);
+  
+  });
+  
+
+%h1 Encrypt Emails Sent to Us
+
+%div
+  %p
+    This page aims to be a brief step by step procedure enabling digital revolutionarys to quickly and easily protect their emails from mass survielence grabs and targetted spying.  
+    For more details see the 
+    %a{ href: "https://ssd.eff.org/en/module/how-use-pgp-windows-pc" } EFF's
+    lengthy document.  
+
+%br
+
+%div
+  %div{style:"float:left; margin-right:30px; padding-top:8px;"}
+    Choose your OS:
+  
+  %div{class:"dropdown", style: "width:116px; float:left;"}
+    %button#dropdownMenu1.btn.btn-default.dropdown-toggle{"aria-expanded" => "true", 
+                                                          "data-toggle" => "dropdown", :type => "button"}
+      %span{class:"os-label"} Dropdown
+      %span.caret
+    %ul.dropdown-menu.dropdown-menu-center{"aria-labelledby" => "dropdownMenu1", :role => "menu", style: "width: 116px"}
+      %li{:role => "presentation"}
+        %button{:class => "btn btn-default linux-button", :style => "width:80%;", :role => "menuitem", :tabindex => "-1", onclick: "displayOsClicked('linux');"} Linux (debian based)
+      %li{:role => "presentation"}
+        %button{:class => "btn btn-default mac-button", :style => "width:80%;", :role => "menuitem", :tabindex => "-1", onclick: "displayOsClicked('mac');"} Mac
+      %li{:role => "presentation"}
+        %button{:class => "btn btn-default windows-button", :style => "width:80%;", :role => "menuitem", :tabindex => "-1", onclick: "displayOsClicked('windows');"} Windows
+  
+  .clear
+
+
+%div
+  %h3 Software Needed: 
+  %ul
+    %li
+      %ul{class:"maybe-dont-indent"}
+        %li{class:"windows"}
+          %a{ href: "http://gpg4win.org/"} a GnuPG library for WINDOWS
+        %li{class:"os-independent", style:"list-style-type:none;"} OR
+        %li{class:"mac"}
+          %a{ href: "https://gpgtools.org/"} a GnuPG library for MAC
+        %li{class:"os-independent", style:"list-style-type:none;"} OR
+        %li{class:"linux"}
+          %span{class:"orange"}
+            %a $  sudo apt-get install gnupg 
+          %span{style:"margin-left:8px;"} # for debian based distros, run this command in terminal
+          
+    %li{ class:"space os-independent", style:"list-style-type:none;" }
+      %br
+
+    %li 
+      %a{ href: "https://www.mozilla.org/en-US/thunderbird/" } Thunderbird (email client)
+    %li
+      %a Enigmail, a Thunderbird plugin installed via Thunderbird (see below)
+
+
+%div
+  %h3 In the End, How do I Send an Encrypted Email?
+  
+  %div
+    %ol
+      %li Open your email client (Thunderbird)
+      %li Select the email account you'd like to send from via the list on the left
+      %li Click write (upper left corner)
+      %li Type your message
+      %li Click send
+    %p It's really that simple once things are configured.  Below is an annotated image of the Thunderbird screen.  
+    %div{style:"margin:20px;"}
+      %img{src:"/images/articles/encrypting_email/send_mail_looks_like.png"}
+      %div{style:"color: grey;"}
+        Note:  This doesn't magically encrypt ALL of your previous emails.  
+        Anything you've already sent was absorbed into the NSA at the moment you clicked send.  
+    
+%div
+  %h3 Installation procedure
+  
+  %p
+    First, you should download Thunderbird and GnuPG from the links above.  May as well have them ready and sitting in your downloads folder.  
+  
+  %h4 Install GnuPG
+  %div{ class:"well" }
+    %p
+      GnuPG does nothing on it's own.  We need it to enable the proper installation of Enigmail.  
+      Just go through the installer.  
+      There's no need to generate a key since Enigmail can do that for you.   
+  
+  %h4 Install Thunderbird
+  %div{ class:"well" }
+    %p
+      Thunderbird in an email client.  Most people are accustomed to browser-based email clients (like ymail.com).  
+      Thunderbird is an email client that runs on your local machine instead of in the web browser.  
+    %p  
+      Go through the installer.  
+      Leaving all options as default will be just fine.  
+      You don't need to understand the options, you can't really mess anything up.  
+    %p
+      After Thunderbird is installed and you open it for the first time, 
+      a dialog window will show up on the screen asking you whether to create a new account or add an existing email account.
+      Choose add an account, and fill in your email information on the next screen.  
+      Thunderbird will automatically take care of all the complex email configurations for you.  
+    
+  %img{src:"/images/articles/encrypting_email/connect_existing_mail_account.png", style:"margin-bottom: 20px;"}  
+    
+  %h4 Install Enigmail
+  %div{ class:"well" }
+    %p
+      Once you have an email account setup in Thunderbird, you'll need to install the Enigmail plugin.
+      You can actually install this plugin from within Thunderbird.  
+      From the Thunderbird menu (hit alt if you can't see it), click Tools → Addons.  
+      Now use the search bar to search for “Enigmail” and install the plugin.  
+  
+
+
+%h3 Setup Complete!  Great Work!
+%p
+  But how do you send an encrypted mail?  ...Well, the way this encryption works is you generate a 'key pair', a private key, and a public key.  
+  Everyone just shares the public key, it can be mailed directly to the prism@merika.gov and no harm done.  
+  When a correspondent wants to send a message just to you, they use that public key to encrypt the message making it unreadable to everyone, even themselves!
+  That's a pretty powerful concept, if you find it hard to believe, just google it, put on your math hat, and become fully educated.  
+  So let's go on about sharing keys public keys, shall we?
+
+
+%h4 Sharing Keys with Someone
+
+%img{src:"/images/articles/encrypting_email/key_manager_window.png"}
+
+%h5 Getting your key to someone else:
+%div{ class:"well"}
+  %ul
+    %li
+      Open the "Enigmail Key Management" window.
+      %ul
+        %li Menu -> Enigmail -> Key Management
+
+    %li
+      You will find your email in that list view, right click it and "copy keys to clipboard"
+    
+    %li
+      Paste your key into a paste service such as pastebin.com
+    
+    %li
+      Share the link with someone you want to communicate with 
+
+%h5 Importing your key from someone else:
+%div{ class:"well"}
+  %ul
+    %li
+      Copy a key into your clipboard
+    %li
+      Open the "Enigmail Key Management" window.
+    %li
+      Click File -> Edit -> Import Keys from Clipboard
+  
+%img{src:"/images/articles/encrypting_email/key_management.png", width:"50%"}
+
+%h3 How do you know it's working
+%div
+  %p
+    So, when you send an email, right before it gets sent to your mail server, it turns into a big block of encrypted text looking like this:
+  
+  %img{src:"/images/articles/encrypting_email/encrypted_msg_s.png", style:"margin-bottom:20px;"}
+  
+  %p
+    To test that your email client is in fact encrypting your messages, 
+    login to your web mail the way you usually would, and open the 'sent' folder.
+    Click an email you sent and thought was encrypted, it should look like the text in the above image, completely encrypted.  
+    Your recipient will also know that it's encrypted when he or she logs into 
+    %em
+      their
+    webmail and opens your message, it should be unreadable in webmail.  But now you can read these types of messages in the Thunderbird email client.  
+

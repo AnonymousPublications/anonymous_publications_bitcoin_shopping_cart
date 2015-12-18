@@ -1,0 +1,14 @@
+- if params[:action] == 'latest' or params[:controller] == "stories"
+  - class_activeness = "active"
+
+%li{:class => class_activeness }
+  %a{:href => "/latest"} 
+    %span.glyphicon.glyphicon-thumbs-up{"aria-hidden" => "true"} 
+    Latest News
+
+- if params[:controller] == 'stories' and params[:action] != 'index'
+  %li{:class => ""}
+    %ul.navbar-child-list.nav-list
+      %li
+        %span.glyphicon.glyphicon-chevron-right{"aria-hidden" => "true"}
+        =truncate(@story.header, length:29)

@@ -1,0 +1,10 @@
+%script{:src=>"/javascripts/printAddresses.js", :type=>"text/javascript", :charset=>"utf-8"}
+%script{:type => "text/javascript", :src => "/assets/jquery.js"}
+
+
+%div{:class=>"control-pane"}
+  =link_to "Back", "/admin_pages/shipping_control"
+  %button{:id => 'nBlanksBtn', :onclick => "nBlank_onClick()"} Add Blanks
+  %input{:id => "nBlanks", :type=>"text", :onkeydown => "nBlank_onKeyDown(this, event)", :value => "0"}
+  
+  

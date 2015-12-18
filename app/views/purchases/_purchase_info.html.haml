@@ -1,0 +1,26 @@
+= render :partial => '/shared/table_label', :locals => {:label => "Purchase Info" }
+%tr
+  
+%tr{ :align => "top", :valign => "left"  }
+  %td 
+    =label :line_item, :qty, "Qty:"
+      
+  %td 
+    =text_field :line_item, :qty, :value => "1", :id => "qty", 
+      :onChange => "onQtyChanged()", :onKeydown => "onQtyKeyDown(event);return numbersOnly(event);", 
+      :class => "input-small validate[required,min[1],custom[integer]]"
+
+
+%tr{ :align => "top", :valign => "left" }
+  %td{}
+    Payment to Tender:
+  %td
+    %div{:class => "text-success"}
+      %span{ :id => "book-cost"}
+        - # @cost_per_book + @shipping_cost_per_book # calculated in javascript
+      %span
+        BTC
+    %span{ :class => "price-explanation"}
+      (Includes Shipping and Discounts)
+
+=# render "advanced_discounts"

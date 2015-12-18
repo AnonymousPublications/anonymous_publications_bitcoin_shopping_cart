@@ -1,0 +1,447 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+*/
+
+// @money_color = #1d1;
+
+p{
+  text-indent: 25px;
+}
+
+.no-indent{
+  text-indent: 0px;
+}
+
+.centertext{
+  text-align: center;
+}
+
+.top-margin{
+  margin-top: 20px;
+  padding-top: 20px;
+}
+
+.red{
+  color: #f00;
+}
+
+.orange{
+  color: rgb(213, 96, 41);
+}
+
+.purple{
+  color: rgb(187, 114, 244);
+}
+
+.money{
+  color: #1d1;
+}
+
+
+ul.subtle-list li{
+  text-decoration: none;
+  list-style: none;
+  padding-bottom:1px;
+}
+
+ul.control-list{
+  margin-left:-10px;
+  margin-top:5px;
+  margin-bottom: -12px;
+}
+
+li.blank-li{
+  height: 20px;
+}
+
+.content {
+  background-color: #eee;
+  padding: 20px;
+  margin: 0 -20px; /* negative indent the amount of the padding to maintain the grid system */
+  -webkit-border-radius: 0 0 6px 6px;
+  -moz-border-radius: 0 0 6px 6px;
+  border-radius: 0 0 6px 6px;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+  -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+  box-shadow: 0 1px 2px rgba(0,0,0,.15);
+}
+
+
+.q:before{
+  content: "Q ";
+  font-size: 21pt;
+}
+
+.a:before{
+  content: "A ";
+  font-size: 21pt;
+}
+
+.clear{
+  clear:both;
+}
+
+
+
+.ap-brand div{
+  line-height: 17px;
+  padding-top:0;
+  padding-bottom:0;
+}
+
+.anon-logo{
+  width: 100px;
+  height: 100px;
+  padding-top:0;
+  padding-bottom:20px;
+}
+
+.printer-only{
+  display:none;
+}
+
+// Nav-list stuff
+
+.navigation{
+  margin-top:16px;
+  min-height: 330px !important;
+}
+
+ul.nav.nav-list{
+  padding-right:0px;
+}
+
+ul.nav.nav-list li.active a{
+  // background-color: #06a;
+  // background-color: #2a4eff;
+  background-color: #0B565F;
+  color: #efe;
+  border-radius: 20px;
+}
+
+ul.nav.nav-list li a:hover{
+  border-radius: 20px;
+}
+
+// gets rid of the stupid shadow on my nav bar items
+ul.nav-list li a{
+  text-shadow: none;
+}
+
+ul.nav.nav-list li.nav-divider{
+  background-color: #474747;
+}
+
+
+ul.nav-list.navbar-child-list{
+  text-decoration: none;
+  list-style: none;
+  padding-bottom:1px;
+  padding-top: 5px;
+  padding-left:20px;
+  padding-right:10px;
+  margin-left:0px;
+}
+
+ul.nav-list.navbar-child-list li{
+  color: #ccc;
+  
+  text-decoration: none;
+  list-style: none;
+  padding-bottom:1px;
+  padding-left:0px;
+  padding-right:0px;
+  margin-left:0px;
+}
+
+
+
+div.center {   margin-left: auto;   margin-right: auto;   width: 8em; }
+
+
+a.buttony:hover {
+  cursor:pointer;
+}
+
+a.buttony {
+}
+
+#discount-code-textbox {
+  height: 20px;
+  margin: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  width: 100px;
+}
+
+
+.title-capsul {
+}
+
+.title-thumbnail {
+  float:left;
+  background: green;
+  width: 120px;
+  height: 128px;
+  margin-right:20px;
+  margin-bottom:20px;
+}
+
+
+.title {
+  font-weight:bold;
+  font-size: 20px;
+  margin-bottom:10px;
+}
+
+
+// Home
+
+.btn-obtain{
+  background-image:none;
+  margin-left:5px;
+  margin-top:10px;
+}
+
+
+
+.signin_links{
+  float: right;
+  padding-right: 0px;
+}
+
+.signin_links ul li a {
+  padding: 0px;
+}
+
+
+
+h6.purchase-subheader {
+  text-indent: 15px;
+  text-decoration: underline;
+}
+
+.purchases-using-this-address {
+  text-align:center;
+}
+
+.address-label {
+  text-transform: capitalize;
+  font-weight: bold;
+}
+
+
+//////////////////// SALE pages
+
+.sale-price-header{
+  width: 70px;
+}
+
+.sale-price-col{
+  text-align: right;
+}
+
+.sale-creation-date{
+  text-align: center;
+}
+
+
+.line-items{
+  border: solid;
+  border-width: thin;
+  border-color:black;
+}
+
+.line-items * th {
+  padding: 0 20px 0 20px;
+}
+
+.line-items tbody tr:nth-child(2n+1){
+  background-color: rgb(19, 19, 19);
+}
+
+tbody.totals tr td{
+  text-align: right;
+}
+
+// The cash values
+tbody.totals tr td:nth-child(7n+3){
+  font-weight:bold;
+}
+
+tbody.totals * .sale-total{
+  font-weight:bold;
+  color: #1d1;
+}
+
+.white {
+  color: white;
+}
+
+
+.code_name_header{
+  text-align: center;
+  font-size: 20px;
+  //margin-bottom:0px;
+}
+
+.code_name_header div:nth-child(2) span{
+  background-color: #333;
+  padding: 3px 10px 4px 10px;
+  text-align: center;
+  margin: auto;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  border-radius:20px;
+}
+
+
+span.bitcoin-address{
+  margin-left:90px;
+  text-align:center;
+}
+
+div.bitcoin-address{
+  position:relative;
+  margin-top:-10px;
+  text-align:center;
+}
+
+.sale-bitcoin-address{
+  font-size: 20px;
+}
+
+nubstuffs{
+  color: #cfc;
+}
+
+
+
+
+.smaller-label{
+  font-size: 10px;
+}
+
+
+
+///////////////////////////////////// Purchases
+
+.purchase div{
+  margin: 40px;
+}
+
+.purchases-list-header div{
+  margin: 40px;
+}
+
+.purchase-label{
+  float:left;
+}
+
+.purchase-shipped{
+  float:left;
+}
+
+.purchase-paid{
+  float:left;
+}
+
+.table-label{
+  color: #aaf;
+  text-decoration: underline;
+  text-align:left;
+  cursor:default;
+}
+
+
+.submission-table * select{
+  width: 206px;
+}
+
+
+
+/* Apply padding to td elements that are direct children of the tr element. */
+tr.spaceUnder > td
+{
+  padding-bottom: 2em;
+}
+
+tr.smallSpaceUnder > td {
+  padding-bottom: 1em;
+}
+
+tr.firstRow > td
+{
+  padding-top: 0.5em;
+}
+
+tr.lastRow > td
+{
+  padding-bottom: 0.5em;
+}
+
+td {
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+
+.disclaimer {
+  color:  #999;
+  font-size:8pt;
+  text-indent:0;
+}
+
+
+
+.cool-vid {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.cool-vid p{
+  text-indent: 0px;
+}
+
+
+
+
+
+// retailers
+
+.bookstores .phone{
+  display: none;
+}
+
+.bookstore-field{
+  margin: 0;
+  padding:0;
+  text-indent: 10px;
+}
+
+.bookstore {
+  position: relative;
+}
+
+.bookstore .map-frame{
+  position: relative;
+  top: 0px;
+}
+
+.bookstores .name{
+  font-weight: bold;
+  font-size: 20px;
+}
+
+
+
+

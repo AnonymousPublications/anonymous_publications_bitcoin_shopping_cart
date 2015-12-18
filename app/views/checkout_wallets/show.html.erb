@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Value needed:</b>
+  <%= @checkout_wallet.value_needed %>
+</p>
+
+<p>
+  <b>Input address:</b>
+  <%= @checkout_wallet.input_address %>
+</p>
+
+<p>
+  <b>Transaction hash:</b>
+  <%= @checkout_wallet.transaction_hash %>
+</p>
+
+<p>
+  <b>Input transaction hash:</b>
+  <%= @checkout_wallet.input_transaction_hash %>
+</p>
+
+
+<%= link_to 'Edit', edit_checkout_wallet_path(@checkout_wallet) %> |
+<%= link_to 'Back', checkout_wallets_path %>

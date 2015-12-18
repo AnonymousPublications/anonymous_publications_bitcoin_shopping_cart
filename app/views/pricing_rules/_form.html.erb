@@ -1,0 +1,16 @@
+<%= simple_form_for(@pricing_rule) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :case_value %>
+    <%= f.input :condition %>
+    <%= f.input :discount_percent %>
+    <%= f.input :shipping_modifier %>
+    <%= f.input :discount_id %>
+    <%= f.input :shipping_plan_id %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

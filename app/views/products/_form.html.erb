@@ -1,0 +1,17 @@
+<%= simple_form_for(@product) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :sku %>
+    <%= f.input :category %>
+    <%= f.input :price_usd %>
+    <%= f.input :taxable %>
+    <%= f.input :shipping_cost_usd %>
+    <%= f.input :qty_on_hand %>
+    <%= f.input :qty_ordered %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

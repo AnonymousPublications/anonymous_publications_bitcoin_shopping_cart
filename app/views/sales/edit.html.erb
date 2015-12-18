@@ -1,0 +1,10 @@
+<h1>Editing sale</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @sale %> |
+<%= link_to 'Back', current_user %> 
+<% unless @sale.receipt_confirmed  || @sale.technically_paid? %>
+	|
+	<%= link_to 'Delete Sale', @sale, method: :delete, data: { confirm: 'Are you sure?' } %>
+<%end%>

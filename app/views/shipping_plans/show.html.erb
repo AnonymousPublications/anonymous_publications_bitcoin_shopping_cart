@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @shipping_plan.name %>
+</p>
+
+<p>
+  <b>Shipping base amount:</b>
+  <%= @shipping_plan.shipping_base_amount %>
+</p>
+
+
+<%= link_to 'Edit', edit_shipping_plan_path(@shipping_plan) %> |
+<%= link_to 'Back', shipping_plans_path %>

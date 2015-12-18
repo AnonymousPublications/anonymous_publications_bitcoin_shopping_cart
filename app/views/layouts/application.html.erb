@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= @title %></title>
+  <meta name="description" content="A publisher of fine works that promote critical thinking and revolution.">
+  <meta name="keywords" content="<%= render 'layouts/keywords' %>">
+  <meta name="author" content="Anonymous Publications">
+  <%= render "/layouts/style_resources"%>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  
+  <%=render "/layouts/icon"%>
+  
+  
+  <script src="/javascripts/jquery.validationEngine-en.js" type="text/javascript" charset="utf-8"></script>
+  <script src="/javascripts/jquery.validationEngine.js" type="text/javascript" charset="utf-8"></script>
+  
+  <%- if $IsDebuggingUI %>
+    <script type="text/javascript" src="/javascripts/debugging_stuffw.js"></script>
+  <%- end %>
+  
+  <%= yield(:head) %>
+</head>
+<body>
+	
+	<div class="container-fluid">
+		<div class="row">
+			<div class="span3 nav-column">
+				
+			</div>
+			<div class="span7">
+				<div class="signin_links">
+					<%= render 'layouts/signin_links' %>
+				</div>
+			</div>
+			
+			
+		</div>
+
+		<div class="row">
+			<div class="span3 nav-column">
+				<%= render 'layouts/navigation' %>
+			</div>
+
+			<div class="span7 content-column">
+			  <%= render 'layouts/messages' %>
+				<%= yield %>
+			</div>
+			
+		</div>
+		
+
+		<div class="row"></br></div>
+		
+		<div class="row">
+			<div class="span3 offset5 text-center ap-brand">
+				<% unless $HideBrand %>
+				<div class="center">Anonymous Publications</div>
+				
+				<% if params[:action] == 'show' and params[:controller] == "sales" %>
+	    		    <div>
+	    		    	<img class="anon-logo printer-only" src="/images/anon-logo_p.png">
+			        </div>
+	    		<% end %>
+				
+				<div>
+	    		  <img class="anon-logo printer-exempt" src="/images/anon-logo_i.png">
+    		    </div>
+	    		
+	    		<% end %>
+			</div>
+		    
+		  </div>
+		</div>
+
+	</div>
+	</body>
+</html>

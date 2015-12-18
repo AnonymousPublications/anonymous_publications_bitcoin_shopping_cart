@@ -1,0 +1,10 @@
+- array_name = record.class.name.downcase
+- id = record.id
+- attribute_name = field_name.to_s
+- js_name_string = "#{array_name}[#{id}][#{attribute_name}]"
+- js_id_string = "#{array_name}_#{id}_#{attribute_name}"
+
+- if record.send(field_name)
+  %input{ :type => "checkbox", :name => js_name_string, :id => js_id_string, :checked => "remove_for_unchecked" }
+- else
+  %input{ :type => "checkbox", :name => js_name_string, :id => js_id_string }

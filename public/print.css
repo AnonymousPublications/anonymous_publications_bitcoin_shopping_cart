@@ -1,0 +1,34 @@
+.navigation, .signin_links, button, .control-pane {
+  display:none;
+  overflow:hidden;
+}
+
+
+.nav-column{
+  display:none;
+  overflow:hidden;
+}
+
+
+.content-column{
+  width: 95%;
+}
+
+
+tbody.line-items-body tr:nth-child(1n){
+  border:solid;
+  border-width:thin;
+}
+
+.printer-exempt{
+  display:none;
+}
+
+.printer-only{
+  display:inline;
+}
+
+
+.label {
+  border-color: white;
+}

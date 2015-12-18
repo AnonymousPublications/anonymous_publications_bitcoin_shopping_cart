@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+<url>
+  <loc>https://anonlit.herokuapp.com/</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>https://anonlit.herokuapp.com/users/sign_in</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>https://anonlit.herokuapp.com/users/sign_up</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>https://anonlit.herokuapp.com/titles</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>https://anonlit.herokuapp.com/about</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>https://anonlit.herokuapp.com/pricing</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>https://anonlit.herokuapp.com/purchasing</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>https://anonlit.herokuapp.com/articles</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>https://anonlit.herokuapp.com/careers</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>https://anonlit.herokuapp.com/donate</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>https://anonlit.herokuapp.com/users/password/new</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>https://anonlit.herokuapp.com/users/confirmation/new</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>https://anonlit.herokuapp.com/articles/encrypting_email</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>https://anonlit.herokuapp.com/articles/poemsec</loc>
+  <changefreq>monthly</changefreq>
+</url>
+</urlset>

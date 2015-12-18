@@ -1,0 +1,13 @@
+- if current_user.nil?
+  = render :partial => '/shared/table_label', :locals => {:label => "User Fields" }
+  %tr{ :align => "top", :valign => "left", :class => "firstRow" }
+    %td{:width => '30%'}
+      =label :user, :email,  "Email:", :class => "email-labol"
+    %td
+      =text_field :user, :email, :class => "validate[required,custom[email]]]"
+
+  %tr{ :align => "top", :valign => "left", :class => "spaceUnder" }
+    %td
+      =label :user, :email_confirmation, "Email Confirmation:", :class => "email-labol"
+    %td
+      =text_field :user, :email_confirmation, :class => "validate[equals[user_email]]"

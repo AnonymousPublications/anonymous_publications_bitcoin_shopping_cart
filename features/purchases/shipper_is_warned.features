@@ -1,0 +1,17 @@
+# feature:  The shipper is warned several things
+# scenario:  The shipper tries to upload a batch that has already been uploaded
+#  thus:  they are warned that they've already uploaded this batch
+# scenario:  The shipper tries to upload a new batch, even though they didn't finish printing the last batches addresses
+#  thus:  they are warned that all orders of the previous batch will be marked shipped
+
+
+
+# feature:  The downloader is warned several things
+# Scenario:  The downloader....
+
+
+
+
+
+
+

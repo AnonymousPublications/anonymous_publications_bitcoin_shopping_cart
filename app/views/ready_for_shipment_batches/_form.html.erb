@@ -1,0 +1,12 @@
+<%= simple_form_for(@ready_for_shipment_batch) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :sale_id %>
+    <%= f.input :batch_stamp %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

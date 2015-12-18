@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Sale:</b>
+  <%= @ready_for_shipment_batch.sale_id %>
+</p>
+
+<p>
+  <b>Batch stamp:</b>
+  <%= @ready_for_shipment_batch.batch_stamp %>
+</p>
+
+
+<%= link_to 'Edit', edit_ready_for_shipment_batch_path(@ready_for_shipment_batch) %> |
+<%= link_to 'Back', ready_for_shipment_batches_path %>

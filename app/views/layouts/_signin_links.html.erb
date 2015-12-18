@@ -1,0 +1,35 @@
+    <% if $IsDebugApiOn %>
+	  <button onclick="window.location='/test_funcs/switch_user?u=admin'">Become Admin</button>
+	  <button onclick="window.location='/test_funcs/switch_user?u=downloader'">Become Downloader</button>
+	  <button onclick="window.location='/test_funcs/switch_user?u=shipping'">Become Shipping</button>
+	<% end%>
+        
+  <% if show_shopping_clutter? %>
+	  <%= $StoreClosed ? "Store Temporarily Closed ><" : "Online" %>
+	  
+	  
+	  <% if user_signed_in? %>
+	    <%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %>, 
+	  <% else %>
+	    <%= link_to 'Login', new_user_session_path %>, 
+	  <% end %>
+	  
+	  
+	  <% if user_signed_in? %>
+	    <%= link_to 'Account Info', current_user %>
+	    <% if current_user.has_role? :admin %>
+	      <%= link_to 'Admin', users_path %>
+	    <% end %>
+	  <% else %>
+	    <%= link_to 'Sign up', new_user_registration_path %>
+	  <% end %>
+  
+  <%else%>
+      <% if user_signed_in? %>
+        <span class="money">&lt;&lt;<%= current_user.name %>&gt;&gt;</span>
+	    <%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %>
+	  <% else %>
+	    <%= link_to 'Login', new_user_session_path %>
+	  <% end %>
+  <%end%>
+  

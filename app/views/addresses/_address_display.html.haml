@@ -1,0 +1,29 @@
+%div{ :class => "shipping-form well"}
+  
+  -if @address.erroneous?
+    %h4{:class => "sale-creation-date red"} ERROR IN ADDRESS
+    %p{:class => "centertext no-indent red"} The shipping team was unable to ship to this address!
+
+  %h4{ :class => "sale-creation-date"}
+    Address Created At #{@address.created_at.to_s}
+  
+  %div{ :class => "code_name_header"}
+    %div
+      Address Code Name:
+    %div
+      %span
+        = @address.present_code_name
+
+  %div{ :id => "address_first_name"}
+  %div{ :id => "address_last_name"}
+  %div{ :id => "address_country"}
+  %div{ :id => "address_address1"}
+  %div{ :id => "address_address2"}
+  %div{ :id => "address_apt"}
+  %div{ :id => "address_city"}
+  %div{ :id => "address_state"}
+  %div{ :id => "address_zip"}
+  %button{:id => "btnDeleteAddressInfo"}
+    Permanently Encrypt Address Info 
+    %br
+    (click after printing)

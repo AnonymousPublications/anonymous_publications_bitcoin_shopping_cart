@@ -1,0 +1,19 @@
+%h1
+  Downloader Controls
+
+%ul{:class => "subtle-list"}
+  %li
+    Phase 1) 
+    = link_to "DL paid purchase orders (x#{@paid_purchase_order_count})", "/admin_pages/download_shippable"
+    = more_info("Have you been sent out to download information from the production server?  Are you supposed to bring a zip file back to the shipping team?  Then follow the above link.")
+    -if can? :download, :finances
+      %ul
+        %li #{@btc_total} BTC total
+        %li BTC worth $#{@usd_equivelant_today} today, 
+        %li face value being $#{@usd_face_value}
+  %br
+  %li
+    Phase 2) 
+    = link_to "Upload Confrimation of shipped POs from shipping team", "/admin_pages/upload_shipped"
+    = more_info("Did you receive a zip file from the shipping team?  Did they ask you to upload it?  Then follow the above link.")
+

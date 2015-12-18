@@ -1,0 +1,14 @@
+<%= simple_form_for(@checkout_wallet) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :value_needed %>
+    <%= f.input :input_address %>
+    <%= f.input :transaction_hash %>
+    <%= f.input :input_transaction_hash %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

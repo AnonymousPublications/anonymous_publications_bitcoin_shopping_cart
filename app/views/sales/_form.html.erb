@@ -1,0 +1,30 @@
+<%= simple_form_for(@sale) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    
+    <div>
+    	Shipping Address:  <span class="smaller-label"><%= link_to "new", new_address_path %></span>
+    </div>
+    <%= f.collection_select(:address_id, @user.addresses.all, :id, :present_code_name ) %>
+    
+    <% # I could do a find_by_product_id(1) here... as a hardcoding thing... but actually I should do an each_where %>
+    
+    
+    <% unless @sale.receipt_confirmed  || @sale.technically_paid? %>
+	    <% @sale.line_items.each do |li| %>
+	    	
+	    	<%= f.simple_fields_for li do |l| %>
+	    	  <%= l.hidden_field :id %>
+			  <%= l.input :qty %>
+			<% end %>
+	    	
+		<% end %>
+	<% end %>
+	
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Save Changes" %>
+  </div>
+<% end %>

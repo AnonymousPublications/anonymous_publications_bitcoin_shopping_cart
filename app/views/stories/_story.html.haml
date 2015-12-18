@@ -1,0 +1,22 @@
+-@story = story
+%div{class: "story well"}
+  - if can? :populate, :media
+    = render '/stories/menu'
+    
+  %div{class: "story-date"}
+    =@story.date
+  %div{class: "story-header"}
+    %h4
+      =link_to @story.header, @story
+      
+  %div{class: "story-body row-fluid"}
+    .col-sm-6.col-md-2.pull-right
+      .thumbnail{style: "background-color:#333;" }
+        = image_tag(@story.thumb_image_path)
+    .col
+      - paragraphs = @story.body.split("\n").reject {|p| p == ""}
+      - paragraphs.each do |p|
+        %p.indent
+          = p.html_safe
+
+

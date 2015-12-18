@@ -1,0 +1,25 @@
+<h1>Listing ready_for_shipment_batches</h1>
+
+<table>
+  <tr>
+    <th>Sale</th>
+    <th>Batch stamp</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @ready_for_shipment_batches.each do |ready_for_shipment_batch| %>
+  <tr>
+    <td><%= ready_for_shipment_batch.sale_id %></td>
+    <td><%= ready_for_shipment_batch.batch_stamp %></td>
+    <td><%= link_to 'Show', ready_for_shipment_batch %></td>
+    <td><%= link_to 'Edit', edit_ready_for_shipment_batch_path(ready_for_shipment_batch) %></td>
+    <td><%= link_to 'Destroy', ready_for_shipment_batch, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Ready for shipment batch', new_ready_for_shipment_batch_path %>

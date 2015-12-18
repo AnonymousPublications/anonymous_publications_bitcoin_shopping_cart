@@ -1,0 +1,57 @@
+%script{:type => "text/javascript", :src => "/javascripts/adminPages.js"}
+
+%h1 Discounts and Coupons
+
+%p
+  You can setup special discounts and sales for products using this page.  Right now they're being setup in the codebase...  
+  This feature really shouldn't be used, talk to dsj if you want special discounts created because this page might not
+  work right.  
+
+
+%h2 Discounts  
+
+%div{ :class => "discounts well" }
+  - @discounts.each do |discount|
+    %div{ :class => "discount well" }
+      
+      %div{ :cass => "discount-name"}
+        %span{ :class => "discount-label"} Name: 
+        =discount.name
+        %div{ :class => "discount-label discount-active" }
+          %span
+            Activate
+          = checkbox_for discount, :active
+      
+      =record_field_for(discount, "discount_type")
+      
+      %div{ :class => "discount-rules"}
+        %h6 Rules:
+        - discount.pricing_rules.each do |rule|
+          %div{ :class => "discount-rule well"}
+            =record_field_for(rule, "case_value")
+            =record_field_for(rule, "condition")
+            =record_field_for(rule, "discount_percent")
+      
+      %div{ :class => "discount-gen_coupon" }
+        %button{ :onclick => "genCoupon(#{discount.id}, 0, null)"}
+          Generate unlimited Coupon!
+        %button{ :onclick => "genCoupon(#{discount.id}, 1, null)"}
+          Generate 1 time coupon
+      
+
+%h2 Coupons
+
+%div{ :class => "coupons well" }
+  - @coupons.each do |coupon|
+    %div{ :class => "coupon well" }
+      %div{ :class => "discount-name"}
+        %div{ :class => "discount-label discount-active" }
+          %span
+            Enabled
+          = checkbox_for coupon, :enabled
+          
+      =record_field_for(coupon, "discount.name", "Associated Discount")
+      =record_field_for(coupon, "usage_limit")
+      =record_field_for(coupon, "token")
+      
+      

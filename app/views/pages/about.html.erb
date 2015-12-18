@@ -1,0 +1,32 @@
+<h1>About Us</h1>
+
+<h4>
+	Official Mission Statement
+</h4>
+
+<p class="indent">
+	We work to realize our own freedom and to support the freedom of others through the publication of literature and other forms of media.  
+	Also, if things go right, there will be surprises!
+</p>
+
+<%=render "/pages/social_list"%>
+
+<br>
+
+<% # This stuff is hidden here for SEO purposes %>
+
+<div class="forty" style="color:gray;">
+	<p>
+		The following two pages are slowly being pushed deeper and deeper into non-existance as that they are no longer viewed as helpful:
+	</p>
+	<ul class="subtle-list">
+		<li> <a class="forty" style="color:gray;" href="/pricing">Pricing</a> </li>
+		<li> <a class="forty" style="color:gray;" href="/purchasing">Purchasing</a> </li>
+	</ul>
+</div>
+
+<script>
+	$(".forty").each(function(index) { 
+		$(this).css('color', 'black');
+	});
+</script>

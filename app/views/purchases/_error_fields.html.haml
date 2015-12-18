@@ -1,0 +1,4 @@
+- @erronious_object = @user if @user.invalid? if !@user.nil?  # oh brother... I don't even want to explain this in a comment it's such a nub thing to do...
+- @erronious_object = @line_item if !@line_item.nil? and @line_item.qty.to_i <= 0
+- @erronious_object = @address if !@address.nil? and @address.invalid?
+= render 'shared/error_messages', object: @erronious_object unless @erronious_object.nil?

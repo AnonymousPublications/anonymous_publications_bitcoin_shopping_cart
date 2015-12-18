@@ -1,0 +1,23 @@
+<h1>Listing utilized_bitcoin_wallets</h1>
+
+<table>
+  <tr>
+    <th>Wallet address</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @utilized_bitcoin_wallets.each do |utilized_bitcoin_wallet| %>
+  <tr>
+    <td><%= utilized_bitcoin_wallet.wallet_address %></td>
+    <td><%= link_to 'Show', utilized_bitcoin_wallet %></td>
+    <td><%= link_to 'Edit', edit_utilized_bitcoin_wallet_path(utilized_bitcoin_wallet) %></td>
+    <td><%= link_to 'Destroy', utilized_bitcoin_wallet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Utilized bitcoin wallet', new_utilized_bitcoin_wallet_path %>

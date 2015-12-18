@@ -1,0 +1,39 @@
+%script{:type => "text/javascript", :src => "/javascripts/bitcoin_payments.js"}
+
+%h1 Purchase via Bitcoin!
+
+%p To mail you a thing, we need...
+
+- if $IsDebuggingUI
+  %button{ :onclick => "autoFillForm();"} FillTestValues
+
+%form{ :id => "mah-form", :controller => 'purchases', :action => "create", :method => 'post' }
+  = render 'hidden_inputs'
+  = render 'error_fields'
+  
+  %table{ :border => 0, :width => "90%", :height => "100%", :class => "submission-table" }
+    %thead
+      %tr
+        %th{ :width => "40%"}
+      %tr
+        %th{ :width => "40%"}
+      %tr
+        %th{ :width => "20%"}
+      
+    = render "user"
+    = render "/addresses/address"
+    = render "purchase_info"
+
+    %tr{ :align => "top", :valign => "left", :class => "lastRow"  }
+      %td
+      %td
+        %input{ :id => "purchase-submit", :type => "submit", :class => "input-state", :name => "submit", :value => "Proceed to Bitcoin Payment" }
+
+%p{:class => 'disclaimer'}
+  Disclaimer:  Neither the members of Anonymous Publications nor our associates 
+  can be responsible for when your government secretly intercepts the book while 
+  it's enroute to you via USPS (or any other reliable 3rd party shipping 
+  company) and throws it onto their big Nazi book burning pile.  But if you're 
+  feeling helpful, feel free to report missing books so we can keep an internal
+  tally on this statistic and possibly workaround any problems introduced into
+  our distribution system.  

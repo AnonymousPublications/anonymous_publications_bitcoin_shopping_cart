@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Qty of satoshi:</b>
+  <%= @costs_of_bitcoin.qty_of_satoshi %>
+</p>
+
+<p>
+  <b>Cost in usd:</b>
+  <%= @costs_of_bitcoin.cost_in_usd %>
+</p>
+
+
+<%= link_to 'Edit', edit_costs_of_bitcoin_path(@costs_of_bitcoin) %> |
+<%= link_to 'Back', costs_of_bitcoins_path %>

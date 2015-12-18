@@ -1,0 +1,12 @@
+-if $IsDebuggingUI
+  %div
+    %button{onclick: "deleteCurrentUsersBtcPmt()"}
+      delete the current users bitcoin_payment which gets mock DLed through AJAX
+    %br
+    %button{onclick: "triggerAjaxOfNewPmtsFound()"}
+      Envoke the ajax lookup to see if there are new pmts at blockchain.info, there will be, page reloads
+    %br
+    %button{onclick: "alert('todu')"}
+      Show an error as would be uploaded by shipping
+
+

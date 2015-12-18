@@ -1,0 +1,58 @@
+%h1 Account Info
+
+%p
+  = link_to "Edit User Settings", "/users/edit"
+
+%p 
+  Email: 
+  = @user.email if @user.email
+
+-# Purchases
+%div{:class => "well"}
+  %h4 Purchases
+  
+  = render :partial => 'purchases_list', :locals => {:x => "unpaid" }
+  = render :partial => 'purchases_list', :locals => {:x => "paid" }
+
+-# Addresses
+%div{:class => "well"}
+  %h4 
+    Addresses
+    %span{:class => "smaller-label"}
+      = link_to "new", new_address_path
+
+  %table{:class => "addresses-list"}
+    %thead
+      %tr
+        %td
+          Code Name
+        %td
+          Creation Date
+        %td
+          Purchases Using This Address
+        %td
+    %tbody
+      - @user.addresses.each do |address|
+        %tr{:class => "address"}
+          %td
+            -if address.erroneous?
+              -a_name = "#{address.code_name} UNSHIPPABLE"
+              -a_class = "red"
+            -else
+              -a_name = "#{address.code_name}"
+              -a_class = ""
+            = link_to a_name, address, :class => a_class
+          %td
+            = address.created_at.to_date.to_s
+          %td
+          %td
+            = link_to "delete", address, :method => :delete, :confirm => "You sure?", :title => "Delete Sale"
+        - @user.sales.where(:address_id => address.id).each do |sale|
+          %tr
+            %td
+            %td
+            %td{ :class => "purchases-using-this-address" }
+              = link_to sale.present_title, "#"
+
+
+

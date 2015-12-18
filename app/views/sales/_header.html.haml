@@ -1,0 +1,15 @@
+%h1
+  -if @sale.address.erroneous
+    %span{:class => "red"} Address Contains an Error
+  -elsif @sale.receipt_confirmed? || @sale.technically_paid?
+    Payment Received!
+  -else
+    Payment Required
+    -if !@sale.checkout_wallet.last_successful_manual_lookup.nil?
+      %span{class: "small"}
+        last checked #{ time_ago_in_words(@sale.checkout_wallet.last_successful_manual_lookup) } ago
+    - elsif @sale.checkout_wallet.having_trouble_doing_manual_lookups? # if it's been a day and we still haven't gotten them
+      %span{class: "small"}
+        It looks like we're having difficulty looking up blockchain.info, don't worry, if you've made a payment it will
+        be manually checked by the team
+

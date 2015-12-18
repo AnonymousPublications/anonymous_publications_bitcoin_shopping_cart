@@ -1,0 +1,25 @@
+%div{:class => "label"}
+  -if defined?(f)
+    %div{:class => "erroneous"}
+      =#hidden_field "address[id][#{address.id}]", "id", :value => address.id
+      %input{ :type => "hidden", :name => "address[#{address.id}][id]", :id => "address_#{address.id}_id", :value => address.id }
+      -if address.erroneous
+        %input{ :type => "checkbox", :name => "address[#{address.id}][erroneous]", :id => "address_#{address.id}_erroneous", :checked => "checked"}
+      -else
+        %input{ :type => "checkbox", :name => "address[#{address.id}][erroneous]", :id => "address_#{address.id}_erroneous"}
+  %div{:class => "text"}
+    %div{:class => 'name'}
+      #{address.first_name_cleartext} #{address.last_name_cleartext}
+    %div{:class => 'address1'}
+      #{address.address1_cleartext}
+    -unless address.address2.empty?
+      %div{:class => 'address2'}
+        #{address.address2_cleartext}
+    -unless address.apt.empty?
+      %div{:class => "apt"}
+        \##{address.apt_cleartext}
+    %div{:class => 'city-state-zip'}
+      #{address.city_cleartext}, #{address.state_cleartext}, #{address.zip_cleartext}
+
+
+

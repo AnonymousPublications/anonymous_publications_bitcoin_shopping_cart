@@ -1,0 +1,19 @@
+-# record_field_for(record, field_name, label_text = nil)
+- model_name = record.class.name.downcase
+- id = record.id
+- attribute_name = field_name.to_s
+
+- html_div_class_string = "#{model_name}-#{attribute_name}"
+- html_label_class_string = "#{model_name}-label"
+- label_text = field_name if label_text.nil?
+
+- nests = field_name.split(".")
+
+- # TODu:  fix this so we don't use eval for the principle of the matter
+- evil_pattern = field_name.split(".").map {|field| "send('#{field}')" }.join(".")
+- evil_pattern = "record." + evil_pattern
+
+
+%div{ :class => "coupon-name" }
+  %span{ :class => "discount-label"} #{label_text}:
+  = eval(evil_pattern)

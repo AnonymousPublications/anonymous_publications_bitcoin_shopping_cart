@@ -1,0 +1,6 @@
+= render :partial => "/shared/twitter_card", :locals => {:x => "unpaid" }
+
+%div{class: "stories", style: "margin-top:15px;"}
+  = render @story
+
+=link_to 'Back', "/latest"

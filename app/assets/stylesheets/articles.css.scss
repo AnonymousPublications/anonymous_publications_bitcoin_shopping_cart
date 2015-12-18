@@ -1,0 +1,18 @@
+// Place all the styles related to the articles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+div.article p{
+  font-family: "Avenir W02",Avenir,Futura,"Gill Sans",Calibri,"Century Gothic","AppleGothic",Helvetica,Arial,sans-serif;
+  font-weight: 300;
+  //font-size:16px;
+  //line-height: 1.25;
+  
+  font-size: 1.30769em;
+  line-height: 1.52941em;
+}
+
+.article h1 {
+  font-family: "Avenir W02",Avenir,Futura,"Gill Sans",Calibri,"Century Gothic","AppleGothic",Helvetica,Arial,sans-serif;
+  font-weight: 300;
+}

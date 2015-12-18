@@ -1,0 +1,33 @@
+<h1>Listing pricing_rules</h1>
+
+<table>
+  <tr>
+    <th>Case value</th>
+    <th>Condition</th>
+    <th>Discount percent</th>
+    <th>Shipping modifier</th>
+    <th>Discount</th>
+    <th>Shipping plan</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @pricing_rules.each do |pricing_rule| %>
+  <tr>
+    <td><%= pricing_rule.case_value %></td>
+    <td><%= pricing_rule.condition %></td>
+    <td><%= pricing_rule.discount_percent %></td>
+    <td><%= pricing_rule.shipping_modifier %></td>
+    <td><%= pricing_rule.discount_id %></td>
+    <td><%= pricing_rule.shipping_plan_id %></td>
+    <td><%= link_to 'Show', pricing_rule %></td>
+    <td><%= link_to 'Edit', edit_pricing_rule_path(pricing_rule) %></td>
+    <td><%= link_to 'Destroy', pricing_rule, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Pricing rule', new_pricing_rule_path %>

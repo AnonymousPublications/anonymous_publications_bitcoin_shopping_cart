@@ -1,0 +1,77 @@
+
+
+#notice {
+  color: green;
+}
+
+.field_with_errors {
+  padding: 2px;
+  background-color: #c22;
+  //display: table;
+  display: block;
+  border-radius:10px;
+  padding: 10px 10px 0px 10px;
+}
+
+.field_with_errors textarea {
+  margin-bottom:10px;
+}
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #224;
+  h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    margin-bottom: 0px;
+    background-color: #222;
+    color: #c22;
+  }
+  ul li {
+    font-size: 12px;
+    list-style: square;
+  }
+}
+
+
+
+// hack to make the input boxes stop bugging out
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: content-box;
+     -moz-box-sizing: content-box;
+          box-sizing: content-box;
+}
+
+.container .row *,
+.container .row *:before,
+.container .row *:after {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+
+.scaffold-table th {
+  padding: 20px;
+  border: solid;
+  border-width:thin;
+}
+
+.scaffold-table .no-border {
+  border: none;
+}
+
+.scaffold-table td {
+  border-bottom: solid;
+  border-width:thin;
+}

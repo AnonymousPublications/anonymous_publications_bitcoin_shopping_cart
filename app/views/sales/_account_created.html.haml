@@ -1,0 +1,9 @@
+%div{:class => "new-user indent"}
+  Welcome user!
+  An account has automatically been created for you with us at AnonymousPublications.  
+  Your username is your email: 
+  %span{:class => "purple", :id => "email"}#{current_user.email}
+    
+  Your temporary password is 
+  %span{:class => "purple", :id => "password"}#{@pass} 
+  which can be changed in the Account Info page.  

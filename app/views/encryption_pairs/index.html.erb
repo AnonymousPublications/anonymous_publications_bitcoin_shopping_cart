@@ -1,0 +1,29 @@
+<h1>Listing encryption_pairs</h1>
+
+<table>
+  <tr>
+    <th>Public key</th>
+    <th>Private key</th>
+    <th>Test value</th>
+    <th>Tested</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @encryption_pairs.each do |encryption_pair| %>
+  <tr>
+    <td><%= encryption_pair.public_key %></td>
+    <td><%= encryption_pair.private_key %></td>
+    <td><%= encryption_pair.test_value %></td>
+    <td><%= encryption_pair.tested %></td>
+    <td><%= link_to 'Show', encryption_pair %></td>
+    <td><%= link_to 'Edit', edit_encryption_pair_path(encryption_pair) %></td>
+    <td><%= link_to 'Destroy', encryption_pair, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Encryption pair', new_encryption_pair_path %>

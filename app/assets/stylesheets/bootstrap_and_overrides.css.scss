@@ -1,0 +1,28 @@
+@import "bootstrap";
+body { padding-top: 0px; }
+@import "bootstrap-responsive";
+
+
+
+
+
+
+.input-tiny { width: 50px }
+
+
+
+.submission-table {
+  margin: 20px;
+}
+
+
+.form-actions{
+  margin-top: 20px;
+  background-color: black;
+  border-top:none;
+}
+
+
+.alert .close{
+  right:0;
+}

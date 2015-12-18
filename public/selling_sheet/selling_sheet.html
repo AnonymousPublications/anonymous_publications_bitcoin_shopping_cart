@@ -1,0 +1,147 @@
+<html>
+<style>
+p {
+  margin:0;
+}
+
+.anon-logo{
+  width: 100px;
+  height: 100px;
+}
+
+.logo {
+  margin-top: 185px;
+}
+
+div.center {   margin-left: auto;   margin-right: auto;   width: 8em; }
+
+.website {
+  margin-left:-25px;
+}
+
+.summary p{
+  text-indent: 25px;
+}
+
+.rep-table{
+  float:left;
+}
+
+.rep-table tr td:nth-child(2n+1){
+  font-weight: bold;
+}
+
+.blank-row{
+  margin-bottom:20px;
+  height:20px;
+}
+
+.book-thumb {
+  width:  100px;
+  height: 100px;
+  float:right;
+}
+
+</style>
+
+<script>
+
+  function populate_onClick() {
+    populate();
+    hide();
+  }
+
+  function populate() {
+    var theName = document.getElementById('name').value;
+    var theEmail = document.getElementById('email').value;
+    
+    document.getElementById('rep-name').innerHTML = theName;
+    document.getElementById('rep-email').innerHTML = theEmail;
+  }
+
+  function hide() {
+    document.getElementById("console").style.display = 'none';
+  }
+</script>
+
+<h1>
+  Parade with the Drums
+</h1>
+
+<div id="console">
+  <p>Fill in your name and contact email, then print this page for use in representation.  </p>
+  <p>You can also print it to a PDF for futer shop runs.</p>
+  <br>
+  <div>
+    <div>Name: <input type=text id="name"></input></div>
+    <div>Email: <input type=text id="email"></input></div>
+  </div>
+  
+  
+  <button onclick="populate_onClick()">Populate Name and Email</button>
+  
+  <br><br><br><br>
+
+</div>
+
+<body>
+  <table class="rep-table">
+    <tr>
+      <td>Rep Name:</td>
+      <td id="rep-name"></td>
+    </tr>
+    <tr>
+      <td>Email:</td>
+      <td id="rep-email"></td>
+    </tr>
+    <tr class="blank-row"></tr>
+    <tr>
+      <td>Company Email:</td>
+      <td>anonymouspublicationz@riseup.net</td>
+    </tr>
+    <tr>
+      <td>Website:</td>
+      <td>anonlit.com</td>
+    </tr>
+    <tr class="blank-row"></tr>
+    <tr>
+      <td>Cost (for resalers):</td>
+      <td>$10.00</td>
+    </tr>
+    <tr>
+      <td>price:</td>
+      <td>$18.00</td>
+    </tr>
+  </table>
+  <img class="book-thumb" src="selling_sheet/pwtd.jpg">
+  
+  <div style="clear:both"></div>
+  
+  <br>
+  <br>  
+  <div class="summary">
+    <b>Summary:</b>
+      <p>
+        Follow Sam in this children's book as he discovers that we actually live in a big society and are entitled to (and responsible for) self governance.  
+      </p>
+    </p>
+  </div>
+  <br>
+  <div class="notes">
+    <b>Notes:</b>
+    <ul>
+      <li>The book is based on actual events that were witnessed throughout the 2011 protests in lower Manhattan and across this nation and others</li>
+      <li>The story is intended to be non-polarizing, beyond that of the peace sign, very few distinct protesting symbols were used</li>
+      <li>The book was engineered to be acceptable to very young readers who are still learning about what humans do</li>
+    </ul>
+  </div>
+  
+  <div class="span3 offset5 center logo">
+    <div>Anonymous Publications</div>
+	  <img class="anon-logo" src="selling_sheet/anon-logo.png">
+	  <div class="website">AnonLit.heroku.com</div>
+  </div>
+</body>
+
+</html>
+

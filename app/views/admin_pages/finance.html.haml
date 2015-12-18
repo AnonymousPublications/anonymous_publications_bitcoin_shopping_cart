@@ -1,0 +1,28 @@
+%h1 Financial Report
+
+%h3 For year ending Dec 2014
+
+%ul{:class => "subtle-list"}
+  %li
+    Number of Shopping Cart Wallets:
+    = @wallets.count
+  %li
+    Aggregate Shopping Cart Balance: 
+    = @aggregate_shopping_cart_balance
+  %li
+    Aggregate Recorded Bitcoin Payments
+    = @aggregate_recorded_bitcoin_payments
+  %br
+  %li
+    Number of Sales
+    = @number_of_sales
+  %li
+    Total Donations
+  %li
+    Graph of CostsOfBitcoinPayments
+    Graph of ActualBitcoinCosts
+    Calculation of loss mitigation per day
+
+
+
+

@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Case value:</b>
+  <%= @pricing_rule.case_value %>
+</p>
+
+<p>
+  <b>Condition:</b>
+  <%= @pricing_rule.condition %>
+</p>
+
+<p>
+  <b>Discount percent:</b>
+  <%= @pricing_rule.discount_percent %>
+</p>
+
+<p>
+  <b>Shipping modifier:</b>
+  <%= @pricing_rule.shipping_modifier %>
+</p>
+
+<p>
+  <b>Discount:</b>
+  <%= @pricing_rule.discount_id %>
+</p>
+
+<p>
+  <b>Shipping plan:</b>
+  <%= @pricing_rule.shipping_plan_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_pricing_rule_path(@pricing_rule) %> |
+<%= link_to 'Back', pricing_rules_path %>

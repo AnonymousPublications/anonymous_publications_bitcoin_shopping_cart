@@ -1,0 +1,37 @@
+-iterator = x == "unpaid" ? :each_unpaid : :each_technically_paid
+-lookup = "has_#{x.to_s}_purchases?".to_sym
+
+%h6{:class => "purchase-subheader"}
+  = x.capitalize
+
+- if @user.send(lookup)
+  %table{:class => "purchases-header"}
+    %thead
+      %tr
+        %td
+          Label
+        %td
+          Value
+        %td
+          = "Shipped?" if x == "paid"
+          =# "PAY" if x == "unpaid"
+        %td
+    %tbody
+      -@user.sales.send(iterator) do |sale, i|
+        %tr{:class => "purchase", :id => "#{x}-#{i.to_s}"}
+          %td
+            = link_to sale.present_title, sale
+          %td
+            = sale.present_total_amount # + sale.shipping_amount + sale.tax_amount
+          %td{:class => "shipped"}
+            = sale.present_shipped if x == "paid"
+          -# %td
+            =# link_to "delete", sale, :method => :delete, :confirm => "You sure?", :title => "Delete Sale" if x == "unpaid"
+          %td{:class => "edit-sale"}
+            = link_to "edit", edit_sale_path(sale) unless sale.shipped or sale.prepped
+          - if x == "unpaid"
+            %td
+              = link_to "pay", sale, :class => "money"
+- else
+  %div 
+    = "You don't have any #{x} purchases yet."

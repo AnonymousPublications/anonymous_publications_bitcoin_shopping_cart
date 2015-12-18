@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Sku:</b>
+  <%= @product.sku %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%= @product.category %>
+</p>
+
+<p>
+  <b>Price usd:</b>
+  <%= @product.price_usd %>
+</p>
+
+<p>
+  <b>Taxable:</b>
+  <%= @product.taxable %>
+</p>
+
+<p>
+  <b>Shipping cost usd:</b>
+  <%= @product.shipping_cost_usd %>
+</p>
+
+<p>
+  <b>Qty on hand:</b>
+  <%= @product.qty_on_hand %>
+</p>
+
+<p>
+  <b>Qty ordered:</b>
+  <%= @product.qty_ordered %>
+</p>
+
+
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>

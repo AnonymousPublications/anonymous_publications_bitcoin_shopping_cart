@@ -1,0 +1,44 @@
+// Place all the styles related to the admin_pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.more_info{
+  position: relative;
+  text-indent: 25px;
+  margin-bottom: 1em;
+  margin-top: 0.5em;
+}
+
+.more_info span{
+  color: black;
+  position: absolute;
+  top: 0;
+}
+
+.more_info div{
+  color: #555;
+}
+
+.more_info:hover div{
+  color: black;
+}
+
+.more_info:hover span{
+  position: absolute;
+  top: 0;
+  color: #999;
+}
+
+
+
+
+// /admin_pages/discounts
+
+.discount-label {
+  font-weight: bold;
+  color: #D56029;
+}
+
+.discount-active {
+  float: right;
+}

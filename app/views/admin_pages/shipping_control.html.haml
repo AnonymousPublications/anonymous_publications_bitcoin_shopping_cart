@@ -1,0 +1,27 @@
+%h1 Shipping Control
+-if false  
+  %ul
+    %li TODu: organize by country for simpler distribution...
+
+
+%ul{:class => "subtle-list"}
+  %li
+    Phase 1) LOAD NEW DATA
+  %li
+    = link_to "Upload purchase orders from a file", "/admin_pages/upload_shippable"
+  %br
+  %li 
+    Phase 2) PRINTING AND MAILING
+  %li
+    Select Your Distribution Locality:  
+  %li= select_tag "address[country]", options_for_select(WorkHard.places_we_ship_to), :class => ""
+  -@qtys_rdy_for_shipping.each do |qty, count|
+    %li= link_to "(qty #{qty}) Print orders ready for Shipment (x#{count})", "/admin_pages/address_labels?qty=#{qty}"
+  
+  %li{:class => "blank-li"}
+  %li
+    Phase 3) EXPORT COMPLETION DETAILS TO CUSTOMERS
+  %li
+    = link_to "Mark erroneous address information", "/address_errors"
+  %li
+    = link_to "Generate Address Completion File when done printing labels (checkmark)", "/admin_pages/address_completion_file"

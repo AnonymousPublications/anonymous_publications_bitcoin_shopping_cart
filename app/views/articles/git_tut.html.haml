@@ -1,0 +1,195 @@
+.article
+  %h1 
+    Git Tutorial
+    %br
+    %small How the Pros Keep Track of Their Written Work
+
+  %div.who-is-this-for
+    %p
+      This tutorial is for anyone who works on documents that change over time.  
+      Git is mostly used by software engineers out of necessity, 
+      but in working with Anonymous Publications, I've been trying to get authors and illustrators on board with this version tracking technology.
+
+    %blockquote
+      %p "This tutorial will be helpful to anyone who writes anything that is both important and complex."
+
+  %div.what-does-it-do
+    %p
+      So "what does git do?" you might ask.  Well, git basically allows you to 'save' the state of your project at a given time.  
+      But it also let's you go back in history to see what your document used to look like.  
+      When authors are able to do this, it gives them revision confidence, that is, the author feels empowered to make changes to his or her original work because the worst case scenario is that the work is simply reverted to a previous state.  
+    %p
+      There are other advantages to using git, such as document colaboration.  
+      I wont get into that here, for now, I'll simply by showing you the wonders of using git in a solo setting.
+
+.article.well
+  %div.requirements
+    %h3 Requirements
+    =link_to 'video guide: Installing Git', '' 
+    %p
+      Before you can start using git, you must first install it on your computer.  
+      The program is compatibal on Windows, Mac, and abviously Linux.  
+      Git was infact developed by Linus Trovald, the person responsible for the Linux kernel.
+
+    %p
+      This web page has attempted to guess what OS you're using and it has found 
+      %span.os-label linux.
+      If this is not your OS, use the dropdown menu below to manually specify your OS which will adapt the installation instructions on this page to be specific to your own machine.
+
+    
+    %p DROPDOWN
+
+    %div.os-windows.os-mac
+      %ol
+        %li
+          Follow the link to git's website (You can probably find the link by googling 'download git' of course)
+          and choose the download for your operating system.  
+          =link_to "Gitsrc", "http://git-scm.com/downloads"
+        %li
+          Install it.  Just use the default options.  Don't overthink it, you can't go wrong.  Worst case is you uninstall and reinstall it.  
+
+.article
+  %h3 Lets Get Started
+
+  .article
+    %p
+      Ok, git is a command line application.  It's the best way to work with git, but it takes a tiny bit of getting used to it's command line interface (CLI).  
+    
+    %p
+      Let's start learning git by pretending we have an important document that we'd like to work on.  
+
+  .article.well
+    %h4 1.  Create an Empty Folder for your Project
+    %p
+      You can create this folder anywhere.  
+      When I'm following peoples tuts, I like to use a folder C:/tmp as my scratch pad so it doesn't get in the way of things.  
+      To create a fold... of course, right click within a folder somewhere on your computer and choose New -&gt; Folder.
+      Name the folder 'git_tut'
+
+  .article.well
+    %h4 2.  Create a New Text File named "ch1_a_landscape_of_frying_pans.txt"
+    %p
+      So we're creating an important document, 
+      such as the first chapter of our book about 
+      how we vanished from an elite hacker group funded by the government to disrupt the infrastructure of 'competitor nations' as deemed by our financeers.  
+    %p
+      Right click to create a simple text file in your project directory.
+      New -&gt; Text Document
+
+  .article.well
+    %h4 3.  Get Into the Command Interface (using git bash!)
+    %p
+      Ok, here's where things might get interesting for you.  
+      Now that we've installed git, we can right click within our 'git_tut' folder and see a special new option called ''
+    %p
+      Command lines allow you to type computer commands and hit enter to have your computer 'run the command' you entered.
+      In tutorials, commands come up quite often, and are displayed in the format below, with a '$' being your big queue that it's a command and you need to type it in at the command prompt.
+    %div
+      %pre
+        \$ echo 'you can type this whole echo cmd in but don't type the dollar sign!'
+    %br
+    %p
+      If the screen gets too messy, hit ctrl+l 
+
+  .article.well
+    %h4 4.  Initialize the Git Repository
+    %p
+      To start using git, you need to tell git to create the repository.
+    %pre
+      \$ git init
+      Initialized empty Git repository in C:\tmp\vanishing_from_the_shadow_kingdom\.git\
+    %p
+      That command will create a hidden folder in the current directory named 
+      %var .git.  
+      You don't need to look at it, but bascially if that folder is removed, your history of saves will be unavailable.  
+      Yes, it's the brain of your git repository :)
+
+
+  .article.well
+    %h4 5.  Save the state of your document
+    %p
+      Ok, so let's edit our first chapter just so it has words.  I'll make mine say this:
+    %pre
+      chapter_title: A Landscape of Frying Pans
+
+      Let me riddle you with a hypothetical personal dilema.  With good intentions, you've built something very powerful and relinquished it into the hands of some rather unlikable people who intend to do ever lasting harm to the world you've thus far enjoyed.  What you've built (helped build really) is so astoundingly powerful that even fools armed with it could track you down and lock you in a prison if you ever fell from favor.  
+
+    %p
+      That's a fine start.  Let's `commit` it to the git repo.  
+
+    %pre
+      $ git add .
+      $ git commit -m "this is my first commit the story starts out proposing a dilema to the reader"
+
+    %p
+      That's a fine start, but now let's change the story to the below text instead.  It's similar, but not quite.  
+
+    %pre
+      So there I was, riddled with a personal dilema. A real one. One that was concrete.  With good intentions, I had built something very powerful and relinquished it into the hands of some rather unlikable people who inteded to do ever lasting harm to the world I've thus far enjoyed.  What I've built single handedly is so astoundingly powerful that even fools armed with it could track me down and lock me in prison if I were to ever fall from favor.   
+
+
+    %p
+      Now commit this second state to the git repo.  
+
+    %pre
+      $ git add .
+      $ git commit -m "I made the story all about me because readers dig that sort of thing"
+
+
+    %p
+      So now we've committed two separate states of our document.  We essentially have two versions now.  We didn't need to copy and paste 'back up files' that ultimately clutter and annoy us to our wits end, git did that for us secretly and put them in that 
+      %var .git
+      folder I mentioned earlier.  Isn't that nifty?  
+
+
+  .article.well
+    %h4 6.  Back to the Future (checkout commits)
+    %p
+      So let's say we want to see all the saves we've made to our project (they're called commits, btw).  
+      For that we use the log command.
+    %pre
+      $  git log
+
+    %p
+      That output looks a little gross (once you get good, you'll make it pretty I'm sure) but it tells us that we have 2 commits 
+      and also reports the commit messages we wrote when we saved the commits.
+
+    %p
+      So let's just go back in time and then view our text file.  
+      For that we use the `git checkout` command and specify that 'commit hash' of the commit we would like to go back in time to.  
+
+    %pre
+      $ git checkout 98989898
+    
+
+    %p
+      Now we can double click our ch1 file, and sure enough, there's the old thing we said.  
+    %p
+      Ok, enough playing around, let's leave the past where it is and go back into the future! 
+    %pre
+      $ git checkout master
+    %p
+      Ok, look closely, I didn't specify a commit to go back into the future because I'm lazy.  
+      Instead of using a commit hash, I used the 'branch' name.  
+      The default branch is mater.
+      But I can't tell you any more about branches because this is an entry level tutorial, sorry, come back next week (bring flowers and a pancho). 
+      Today, it's just the basics.  
+
+  .article.well
+    %h4 Display the Differences Between Two Commits
+    %p
+      The true power of git is it's ability to show you exactly what's changed between two commits.  
+      I'll demonstrate.  
+
+    %pre
+      $ git diff HEAD^ HEAD --color-words
+    
+    %p
+      Again, I've been lazy and didn't type the commit hashes, instead I used HEAD which (in this case) symbolizes the latest commit, and HEAD^ which symbolizes the one before the latest commit.
+
+
+
+
+
+
+

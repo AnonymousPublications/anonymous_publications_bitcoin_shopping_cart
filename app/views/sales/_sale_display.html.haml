@@ -1,0 +1,92 @@
+%div{ :class => "order-form well" }
+  %h4{ :class => "sale-creation-date" }
+    Purchase Info
+  %table{ :class => "line-items" }
+    %thead
+      %tr
+        %th Product Name
+        %th Description
+        %th Qty
+        %th{ :class => "sale-price-header" } Price
+
+    %tbody{ :class => "line-items-body" }
+      - @sale.line_items.each do |line_item|
+        - prod = line_item.product
+        %tr{ :class => "line-item"}
+          %td
+            = prod.name
+          %td
+            = prod.description
+          %td{ :class => "sale-price-col" }
+            = line_item.qty
+          %td{ :class => "sale-price-col" }
+            = "#{line_item.display_price_extend} #{line_item.currency_used}"
+        - line_item.discounts.each do |discount|
+          %tr{ :class => "discount-item"}
+            %td
+            %td
+              #{discount.description}
+            %td
+            %td{ :class => "sale-price-col" }
+              (#{discount.display_price_extend})
+    
+    %tbody{ :class => "totals"}
+      %tr
+        %td
+        %td
+        %td
+        %td
+          %br
+          %br
+      %tr{ :class => "top-margin"}
+        %td
+        %td Sale Amount:
+        %td{ :class => "sale-amount", :colspan=>"2"}
+          = @sale.display_sale_amount
+      
+      %tr
+        %td
+        %td Discounts:
+        %td{ :class => "discount-amount", :colspan=>"2"}
+          (#{@sale.display_discount_amount})
+          
+
+      %tr
+        %td
+        %td Tax:
+        %td{ :class => "sale-tax", :colspan=>"2"}
+          = @sale.display_tax_amount
+      %tr
+        %td
+        %td Shipping:
+        %td{ :class => "sale-shipping", :colspan=>"2", :style => "text-align: right;"}
+          - if @sale.coupons.contains_wave_shipping_coupon?
+            %div{ :class => "money" } (Waved Shipping Coupon!)
+          = @sale.display_shipping_amount
+      - if @sale.minimum_sale_amount_adjustment > 0.0
+        %tr
+          %td
+          %td Minimum Sale Amount Adjustment
+          %td{ :class => "sale-min-adj", :colspan=>"2", :style => "text-align: right;"}
+            = @sale.display_minimum_sale_amount_adjustment
+      %tr
+        %td
+        %td Total:
+        %td{ :class => "sale-total", :colspan=>"2"}
+          %span{:id => "total-amount"}
+            = @sale.display_total_amount
+          = @sale.currency_used
+  
+  %ul{:class => "subtle-list control-list printer-exempt"}
+    -unless @sale.receipt_confirmed || @sale.technically_paid?
+      %a{ :class => "buttony", :onclick => "submitDiscount()" } [Submit Discount Code]
+      %input{ :id => "discount-code-textbox", :type => "text", :onkeydown => "discountField_keydown(event)" }
+    -unless @sale.prepped
+      %li
+        = link_to '[Edit]', edit_sale_path(@sale)
+    -unless @sale.receipt_confirmed || @sale.technically_paid?
+      %li
+        = link_to '[Cancel Sale]', @sale, method: :delete, data: { confirm: 'Are you sure?' } 
+
+
+

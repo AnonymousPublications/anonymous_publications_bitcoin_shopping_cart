@@ -1,0 +1,188 @@
+##################
+# DEBUG SETTINGS #
+##################
+#
+# HINT: On the production server, these should all be set to false
+
+# When true, will use debugging encryption keys which completely undermines privacy
+IS_DEBUGGING_ENCRYPTION:        false
+
+# Allows you to operate the app, even in an offline environment
+IS_DEBUGGING_RESPONSES:         false
+
+# Set this and IS_DEBUGGING_RESPONSES to false if you actually want your tests to query the internet (Might not work for all tests...)
+IS_MOCKING_RESPONSES_IN_TESTS:  false
+
+# Allows you to use the debug buttons I put on the html forms... linked with IS_DEBUGGING_UI...
+IS_DEBUG_API_ON:                false    
+
+# Adds buttons to UI that make debugging easier
+IS_DEBUGGING_UI:                false
+
+# Hides the anonymous logo if you're feeling casual about developing in public
+# Or asking colleagues for advice
+HIDE_BRAND:                     false
+
+# this disables things like 'buy now' buttons and bitcoin donation widgets
+# basically anything that will be researchable...
+DISABLE_EXTERNAL_WIDGETS:       false
+
+
+################
+# APP SETTINGS #
+################
+
+STORE_CLOSED: true
+
+BITCOIN_CALLBACK_DOMAIN: "https://anonlit.herokuapp.com"
+
+MAIL_USERNAME:         "example@gmail.com"
+MAIL_PASSWORD:         ""
+MAIL_DOMAIN:           "gmail.com"
+MAIL_SERVER_ADDRESS:   "smtp.gmail.com"
+MAIL_PORT:             587
+
+ROLES:          [user, admin, downloader, shipping, operative]
+
+DEFAULT_USERS:  |
+  [
+    { name: "admin",      email: "test@gmail.com",       password: "changeme",              roles: ["admin"] },
+    { name: "downloader", email: "dl@anonlit.com",       password: "changeme", roles: ["downloader"] },
+    { name: "shipping",   email: "shipping@anonlit.com", password: "changeme", roles: ["shipping"] }
+  ]
+
+
+######################
+# FINANCIAL SETTINGS #
+######################
+
+SHOPPING_CART_WALLET:  "1QBq4YTYwuiugBVFaDqKEWwdbBHYU6kBX7"
+DONATION_WALLET:       "18WuvmZK7E6Dwzm5BbQDNGf5QmArui2j5A"
+PAYPAL_ID:             "empty"
+
+
+##########################
+# EXCHANGE RATE SETTINGS #
+##########################
+
+EXCHANGE_RATE_RESOURCES:  | 
+          [ { :uri => "https://api.bitcoincharts.com/v1/weighted_prices.json",
+              :avg_30_days => "[\"USD\"][\"30d\"]",
+              :avg_7_days => "[\"USD\"][\"7d\"]",
+              :avg_24_hours => "[\"USD\"][\"24h\"]",
+              :usages => "all" }, 
+            { :uri => "https://api.bitcoinaverage.com/ticker/global/USD/",
+              :avg_30_days => "",
+              :avg_7_days => "",
+              :avg_24_hours => "[\"24h_avg\"]",
+              :usages => "avg_24_hours" } ]
+
+
+####################
+# ENCRYPTION CODES #
+####################
+
+# This is the encryption key, if you're debugging and want to use a test key
+# that can be uploaded to the net, just set IS_DEBUGGING_ENCRYPTION to true
+# and the keys in config/initializers/populate_globals.rb will be used
+# instead of any values here
+ENCRYPTION_KEY: |
+  -----BEGIN PGP PUBLIC KEY BLOCK-----
+  Version: GnuPG v1.4.12 (GNU/Linux)
+
+  mQENBFQPS/gBCADfZWJ7tObscIYPGnLYmnJzWs0eMuzap8rY13rWV4pTq36nzQwD
+  uoJku7pf+fvVJoVebjYYX86K+npg4lIpDmjzpl07opU4TDJt2LXS0W3/mpMwor77
+  tlLYSi4bBGPDsGGbwLhwofVi5aZuzVfLCIBRNiTFc18Hajux6rLMEs/uqed6v9Gf
+  e5xll73x0+s+ZLvVzMatG3wnMw+X1MVF8Tk1arn8qHpM8lxeHMAx+NLP+x6BHaYd
+  BbW7X6IMjXDpP9IypkSJtn8Jp2cJ54TEMdSTjNXALH7nwfgVlkpEThkBT0f2RPnD
+  G6HeblqOCoDjJthI6Y5XXaJL6yu7pimENacZABEBAAG0MEZvcm0gRW5jcnlwdG9y
+  ICh2MykgPGZvcm1fZW5jcnlwdG9yQGFub25saXQuY29tPokBNwQTAQgAIQUCVA9L
+  +AIbAwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgAAKCRDyzygbuf4czZvaB/0X6ilm
+  HXH0XwLyoyhOO0zD8vSMnJMDwJ4Z8IDtDqXB6cYUpZcPH4qyd8cpx0vY2aWZ9flt
+  CoU3SIOX246l6hixgEfvFFGeWCTCZZryU/tfLakKXvtow+0oBrKfpuW7Uk5kTNNu
+  Ohx2KVify45qLWPqrTQNHbvjTV/TSPslCJtNHpdcTiH8jHZ68Lz1f+v8jw1zqAtk
+  OHUcZb1uwbqHgVDDaraTw6ufLHSeutC5qmaIFlpLqc9AX+yUcGDA2M2bxRgSapwB
+  MMS2yr/DVzCppsZHsAU89aSw4V3JVrRr7mtvhynm4iYgiCV4r/VVxD05KQ01ONc+
+  3F1CoJeJFsBySDOVuQENBFQPS/gBCADdfrCMQzmto+WuUGjMIXAx1AN5K539JtRt
+  9JD9J5w9W6DfAYZONpz5H6ZsK172X+xOcrflchmqZAuUPQyEVVEoBCrZa/B2yhgN
+  fIrwoICXsV27PHVg+k/e8FLQtgqbVKLlMRzsIUKKcoKyvqFQaVIvQF1LCkoXBjOY
+  Nf7DpRz8i4OHkZHm05c7JcgoaAj9x48DjrIGxsrLeVOGpuMYx/UoIy/sZFygstyz
+  bC6IfT5vsqkLiY3b6E77H0bavZJq3+hj8BPwFEagHDEo/PiE3dxluSwlTB7WOFAk
+  7XeuetCSZSnTNEk28Nj6C7S/iq5oBG9nsfHfpxh9s0XJOjQOoKypABEBAAGJAR8E
+  GAEIAAkFAlQPS/gCGwwACgkQ8s8oG7n+HM0OcQf+NXA+12/Wpedc9YjdoQYS7fWP
+  TPMUEvuiSFii5pj4535p6BqXkddTX9V2zy+zXtN+qcWRcmVdTJFnxhQYUvPVmiww
+  +OjrB369CDPpCiErZ2cx6WzVgGp7npQoeRQIb8GkQ3ZXGGF/s5XL5joU3g6UgGJz
+  jUUoeC4/Qe5Bx0PrxTAqvzYSlJxwPi0A/XesldmFBVFA9YECIYyfZouOQvq42rFY
+  UgVUtY4I383C0Zd1GALHdes7twotac9hvyGpnA/QugqgV9hhsRKXcqP0/Xgz22jy
+  xTH7cmzbeTMI3acW9uTW1Xsg8rez5pMKVq4AzdBYJyGu60xbClWOSU0PR9xujA==
+  =cUoj
+  -----END PGP PUBLIC KEY BLOCK-----
+
+
+########################
+# PRINTER MACHINE ONLY #
+########################
+
+DECRYPTION_KEY: | 
+  -----BEGIN PGP PRIVATE KEY BLOCK-----
+  Version: GnuPG v1.4.12 (GNU/Linux)
+
+  Real key goes here...
+  -----END PGP PRIVATE KEY BLOCK-----
+
+
+# This one is less secure because it's on laptops connected to the internet
+# it's used in thunderbird
+ENCRYPTION_KEY_EMAIL: |
+  -----BEGIN PGP PUBLIC KEY BLOCK-----
+  Version: GnuPG v1
+  
+  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
+  =JqPo
+  -----END PGP PUBLIC KEY BLOCK-----

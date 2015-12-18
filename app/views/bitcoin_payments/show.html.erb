@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Value:</b>
+  <%= @bitcoin_payment.value %>
+</p>
+
+<p>
+  <b>Input address:</b>
+  <%= @bitcoin_payment.input_address %>
+</p>
+
+<p>
+  <b>Confirmations:</b>
+  <%= @bitcoin_payment.confirmations %>
+</p>
+
+<p>
+  <b>Transaction hash:</b>
+  <%= @bitcoin_payment.transaction_hash %>
+</p>
+
+<p>
+  <b>Input transaction hash:</b>
+  <%= @bitcoin_payment.input_transaction_hash %>
+</p>
+
+<p>
+  <b>Destination address:</b>
+  <%= @bitcoin_payment.destination_address %>
+</p>
+
+<p>
+  <b>Sale:</b>
+  <%= @bitcoin_payment.sale_id %>
+</p>
+
+<p>
+  <b>Raw callback:</b>
+  <%= @bitcoin_payment.raw_callback %>
+</p>
+
+
+<%= link_to 'Edit', edit_bitcoin_payment_path(@bitcoin_payment) %> |
+<%= link_to 'Back', bitcoin_payments_path %>

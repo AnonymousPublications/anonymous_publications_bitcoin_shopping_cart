@@ -1,0 +1,22 @@
+= render :partial => '/shared/table_label', :locals => {:label => "Mailing Address Fields" }
+
+- if current_user.nil? or (!current_user.nil? and current_user.addresses.empty?)
+  = render "/addresses/address_input"
+
+- else
+  %tr
+    %td
+      = radio_button_tag :address_style, "saved", :checked => 'checked'
+      = label_tag :address_style_saved, "Use existing address"
+    %td
+      = radio_button_tag :address_style, "new"
+      = label_tag :address_style_new, "Create new address"
+
+  %tr{ :id => "address_select_box" }
+    %td{ :colspan => "2"}
+      = simple_form_for(Sale.new) do |f|
+        = f.collection_select(:address_id, @user.addresses.all, :id, :present_code_name )
+      -# select_tag(:address_selection, options_for_select(@user.get_address_select_box_array))
+
+  %tr{ :class => "address_create_field" }
+    = render "/addresses/address_input"

@@ -1,0 +1,7 @@
+%link{ :type=>"text/css", :rel=>"stylesheet", :media=>"print", :href => "/print.css" }
+
+= render "address_display"
+
+%script{:type => "text/javascript", :src => "/javascripts/bitcoin_payments.js"}
+%script{:type => "text/javascript"}
+  $(document).ready(function() {  onShowPageLoad(valuesToSaveGlobal);  });
