@@ -1,5 +1,12 @@
 This is the web application for Anonymous Publications.  This file is best read in a text editor.
 
+:::::::: THE THINGS WORTH STEALING ::::::::::
+
+- Code involving bitcoin purchases (should be extracted into a gem and then used where ever)
+- Code involing encryption of user informaition (extract js to bower package and ruby code to a gem)
+
+
+
 :::::::: DEPLOYMENT PROCEDURE :::::::::::::::
 
 This web app is the absolute easiest way to start selling something without having to do a lot of signups, subscriptions and annoying work.  It's absolutely trivially easy, you only need to do 5 steps.  This should take 10 or 15 minutes maybe?  It will take more time if you're a developer and are actually checking out the code, but it won't take much longer, the app is very clearly written (in these parts) and even an absolute bad will have a grasp of how the code works after reading this section and lightly perusing the code.  
